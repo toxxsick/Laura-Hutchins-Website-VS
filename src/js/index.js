@@ -1,5 +1,5 @@
 import num from './test';
 
-console.log(`imported from test.js - ${num}`);
+console.log(`imported from test.js - ${num} and again`);
 
 
