@@ -2,7 +2,7 @@ const path = require('path'); //built in node module called path
 const HTMLWebpackPlugin = require('html-webpack-plugin'); 
 
 module.exports = {
-    entry: './src/js/index.js', //entry point
+    entry: ['./src/js/index.js'], //entry point
     output: {
         path: path.resolve(__dirname, 'dist'), //__dirname directly name with where to put the bundle
         filename: 'js/bundle.js' //filename
@@ -14,8 +14,19 @@ module.exports = {
         new HTMLWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html'
-        })
-    ] //creates a final index.html with bundle.js scripted to it in dist using pluggin.
+        }) //creates a final index.html with bundle.js scripted to it in dist using pluggin.
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.js$/, //tests files which is .js and adds babel loader to it
+                exclude: /node_modules/, //excludes node_modules 
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
     
 
    

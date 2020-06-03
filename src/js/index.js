@@ -1,5 +1,5 @@
 import num from './test';
-
-console.log(`imported from test.js - ${num} and again`);
+const x = 23;
+console.log(`imported from test.js - ${num} and again Variable x is ${x}`);
 
 
