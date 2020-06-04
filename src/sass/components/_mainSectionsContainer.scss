@@ -1,0 +1,63 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         Category Sections                                     //
+//-----------------------------------------------------------------------------------------------//
+.container-fluid {
+
+
+
+    .row {
+        background-color: $blue;
+
+
+        .sectionsContainer__section {
+            text-align: center;
+            overflow: hidden;
+            height: 35rem;
+            padding: 0;
+
+            .section__img {
+                width: 100%;
+                position: relative;
+                @include categoryImgFilter();
+                transition: filter 1s;
+
+                &--largerSize {
+                    width: 113%;
+                    height: auto;
+                }
+
+            }
+
+            .section__img--position {
+                @extend .section__img;
+                top: -35rem;
+            }
+
+            .section__centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                .centered__h1 {
+                    font-size: 3rem;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    color: $white;
+                }
+
+                .centered__hr {
+                    border: 0.1rem solid $white;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .section__img {
+                    filter: none;
+                }
+            }
+        }
+    }
+}

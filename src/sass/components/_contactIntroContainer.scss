@@ -1,0 +1,93 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         Contact Intro section                                 //
+//-----------------------------------------------------------------------------------------------//
+.contactIntroContainer {
+    background-color: $blue;
+
+
+    .contactIntroContainer__contactIntro {
+
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+
+        .contactIntro__header--color {
+            color: $white;
+        }
+
+        .contactIntro_header--centered {
+            text-align: center;
+        }
+
+        .contactIntro__hr {
+            border: 0.1rem solid $white;
+            width: 100%;
+
+        }
+
+        .contactIntro__header-style {
+            width: 100%;
+            text-align: center;
+        }
+
+
+
+        .contactIntro__contactIntroBtnDiv {
+            margin: 1.5rem 0rem 1.5rem 0rem;
+
+            @include marginLeftAndRight(auto);
+
+            border: 0.2rem solid $white;
+            width: 48%;
+            padding: 1rem;
+            transition: border 1s;
+            color: $white;
+            text-align: center;
+
+
+            .contactIntroBtnDiv__p {
+
+                font-size: 1.8rem;
+                display: inline;
+                transition: color 1s;
+            }
+
+            .contactIntroBtnDiv__i {
+
+                vertical-align: top;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+                margin-top: 0.5rem;
+
+                transition: filter 0.5s;
+            }
+        }
+
+
+
+        .contactIntro__a:hover {
+            text-decoration: none;
+
+
+            .contactIntro__contactIntroBtnDiv {
+                border: 0.2rem solid $aqua;
+                transition: border 1s;
+
+
+                .contactIntroBtnDiv__p {
+                    text-decoration: none;
+                    color: $aqua;
+                    transition: color 1s;
+                }
+
+                .contactIntroBtnDiv__i {
+                    color: $aqua;
+                    transition: color 1s;
+
+
+                }
+
+
+            }
+        }
+    }
+}

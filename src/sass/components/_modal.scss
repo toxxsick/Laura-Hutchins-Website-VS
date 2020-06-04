@@ -1,0 +1,74 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         Modal                                                 //
+//-----------------------------------------------------------------------------------------------//
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    @include widthHeight(100%, 100%);
+    overflow: auto;
+    background-color: rgb(0, 0, 0); //fallback colour
+    background-color: rgba(36, 41, 67, 0.9);
+
+
+
+    .modal-content {
+        top: 20%;
+        position: relative;
+        margin: auto;
+        padding: 0;
+        width: 50%;
+        animation-name: animatetop;
+        animation-duration: 0.5s;
+
+
+        //keyframes  can be inside the class it's animating 
+        @keyframes animatetop {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-body {
+            background-color: $darkBlue;
+
+            .close {
+                color: $white;
+                float: right;
+                font-size: 8rem;
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    color: $aqua;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: color 1s;
+                }
+            }
+
+
+
+
+            button {
+                width: 100%;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                padding: 0.5rem;
+                display: block;
+                border: 0 none;
+                font-size: 2.5rem;
+                border-bottom: 0.1rem solid $blue;
+                background-color: $darkBlue;
+                color: $white;
+
+            }
+        }
+    }
+}

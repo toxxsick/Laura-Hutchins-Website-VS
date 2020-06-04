@@ -1,0 +1,207 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         Contact section                                       //
+//-----------------------------------------------------------------------------------------------//
+.contactSectionContainer {
+    border-bottom: 0.1rem solid $darkBlue;
+
+
+
+    //-----------------------------------------------------------------------------------------------//
+    //                                         leftContact section                                   //
+    //-----------------------------------------------------------------------------------------------//
+
+    .contactSectionContainer__leftContactSection {
+
+        border-top: 0.1rem solid $darkBlue;
+
+
+
+
+
+        .leftContactSection__name {
+
+            @include marginLeftAndRight(6rem);
+
+            color: $white;
+            margin-top: 3rem;
+
+
+            .name__h2 {
+                font-size: 1.7rem;
+                font-weight: 500;
+                margin-bottom: 0.8rem;
+
+            }
+
+            .name__input {
+                background-color: $darkBlue;
+
+                box-shadow: none;
+                border: 0rem solid;
+                width: 100%;
+                height: 3rem;
+            }
+
+            input[type="text"] {
+                font-size: 1.5rem;
+
+            }
+
+            .name__input:focus {
+                border: 0.1rem solid $aqua;
+                color: $white;
+                font-size: 1.7rem;
+            }
+
+        }
+
+
+        .leftContactSection__email {
+            @extend .leftContactSection__name;
+            margin-top: 3rem;
+
+            .email__h2 {
+                @extend .name__h2;
+            }
+
+            .email__input {
+                @extend .name__input;
+                //takes psecudo class :focus into account aswell. 
+            }
+        }
+
+
+        .leftContactSection__message {
+            @extend .leftContactSection__name;
+
+
+            .message__h2 {
+                @extend .name__h2;
+            }
+
+            .message__input {
+                @extend .name__input;
+                height: 10rem;
+            }
+
+            .input__submit {
+                background-color: $white;
+                color: $blue;
+                font-size: 1.7rem;
+                text-decoration: none;
+                border: 0 none;
+                padding: 1rem;
+                margin: 2.5rem 1.5rem 2.5rem 0rem;
+            }
+
+            .message__button {
+                @extend .input__submit;
+                background: $blue;
+                color: $white;
+                border: 0.1rem solid $white;
+                padding: 1rem 3.5rem 1rem 3.5rem;
+                transition: color 1s, border 1s;
+
+                &:hover {
+                    border: 0.1rem solid $aqua;
+                    color: $aqua;
+                    transition: color 1s, border 1s;
+                }
+            }
+
+
+        }
+    }
+
+
+
+    //-----------------------------------------------------------------------------------------------//
+    //                                         rightContact section                                  //
+    //-----------------------------------------------------------------------------------------------//
+    .rightContactSection {
+        border-top: 0.1rem solid $darkBlue;
+        border-left: 0.1rem solid $darkBlue;
+
+
+
+
+
+        .rightContactSection__email {
+
+            @include marginTopAndBottom(2.5rem);
+
+            padding-left: 4rem;
+            color: $white;
+            display: inline-block;
+            width: 100%;
+            border-bottom: 0.1rem solid $blue;
+
+            .email__img {
+                height: 3.5rem;
+                filter: brightness(0) invert(1)
+            }
+
+            .email__h2 {
+                display: inline-block;
+                margin-left: 5%;
+                position: relative;
+                top: 0.5rem;
+                margin-bottom: 5%;
+            }
+
+            .email__a {
+                display: block;
+                padding-left: 14%;
+                color: $white;
+                font-size: 1.5rem;
+                border-bottom: 0.1rem dotted;
+                width: 86%;
+                transition: color 1s, border 1s;
+
+                &:hover {
+                    color: $aqua;
+                    border-bottom: none;
+                    text-decoration: none;
+                    transition: color 1s, border 1s;
+                }
+            }
+        }
+
+
+        .rightContactSection__phone {
+            @extend .rightContactSection__email;
+
+            .phone__img {
+                @extend .email__img;
+            }
+
+            .phone__h2 {
+                @extend .email__h2;
+            }
+
+            .phone__a {
+                @extend .email__a
+            }
+        }
+
+        .rightContactSection__address {
+            @extend .rightContactSection__email;
+
+
+            .address__img {
+                @extend .email__img;
+            }
+
+            .address__h2 {
+                @extend .email__h2;
+            }
+
+            .address__a {
+                @extend .email__a;
+
+
+            }
+
+        }
+    }
+}

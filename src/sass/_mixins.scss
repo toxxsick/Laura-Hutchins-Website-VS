@@ -1,0 +1,21 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         mixins                                                //
+//-----------------------------------------------------------------------------------------------//
+@mixin categoryImgFilter() {
+    filter: brightness(75%) sepia(100%) hue-rotate(180deg) saturate(300%) contrast(0.45) blur(0.2rem);
+}
+
+@mixin widthHeight($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin marginTopAndBottom($topandbottom) {
+    margin-top: $topandbottom;
+    margin-bottom: $topandbottom;
+}
+
+@mixin marginLeftAndRight($leftandright) {
+    margin-left: $leftandright;
+    margin-right: $leftandright;
+}

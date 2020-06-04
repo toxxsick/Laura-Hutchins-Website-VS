@@ -1,0 +1,26 @@
+/**
+    Entry point: 
+    styles/style.scss
+
+    based off https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+    
+*/
+@import "variables";
+@import "mixins";
+@import "components/navbar";
+@import "components/modal";
+@import "components/introSection";
+@import "components/mainSectionsContainer";
+@import "components/contactIntroContainer";
+@import "components/contactSectionContainer";
+@import "components/footer";
+
+
+
+
+/*Resets*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

@@ -1,0 +1,35 @@
+//-----------------------------------------------------------------------------------------------//
+//                                                Navigation bar                                 //
+//-----------------------------------------------------------------------------------------------//
+
+.navbar {
+    background: $darkBlue;
+
+    &__logo {
+        font-size: 1.9rem;
+    }
+
+    &__btn {
+        border: 0 none;
+        @include widthHeight(2.5rem, 2.5rem);
+        background: $darkBlue;
+        width: 10rem;
+
+        &--size {
+            color: $white;
+            font-size: 1.9rem;
+            transition: color 1s;
+        }
+
+        .btn__i {
+            margin-left: 0.8rem;
+            font-size: 1.8rem;
+
+        }
+
+        &:hover {
+            color: $aqua;
+            transition: color 1s;
+        }
+    }
+}

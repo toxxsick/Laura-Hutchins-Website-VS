@@ -1,0 +1,62 @@
+//-----------------------------------------------------------------------------------------------//
+//                                         footer section                                        //
+//-----------------------------------------------------------------------------------------------//
+.footer {
+    background-color: $darkBlue;
+
+
+    .footer__footContainer {
+
+        text-align: center;
+
+
+        .footcontainer__img {
+
+            
+            
+            width: 5%;
+            filter: brightness(0) invert(1);
+            margin: 1.2rem;
+
+            &:hover {
+                filter: invert(1) brightness(80%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+            }
+        }
+
+
+
+
+
+
+        //-----------------------------------------------------------------------------------------------//
+        //                                         credits section                                       //
+        //-----------------------------------------------------------------------------------------------//
+        .footContainer__creditContainer {
+            margin-top: 1rem;
+
+            .creditContainer__p {
+                font-size: 1.1rem;
+                color: #244655;
+                font-weight: 400;
+                display: inline-block;
+                padding: 0 1rem 0 1rem;
+                border-right: 0.2rem solid $creditsBlue;
+
+
+
+                .creditContainer__a {
+                    color: $creditsBlue;
+                    border-bottom: 0.1rem dotted;
+                    transition: color 1s, border 1s;
+
+                    &:hover {
+                        text-decoration: none;
+                        border-bottom: 0 none;
+                        color: $aqua;
+                        transition: color 1s, border 1s;
+                    }
+                }
+            }
+        }
+    }
+}
