@@ -26,14 +26,13 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.s[ac]ss$/i,
                 use: [
                  'style-loader', // 3 injects style into DOM
                  'css-loader',   // 2 turns css into common js
                  'sass-loader'   // 1 turns sass into css
                 ],
             },
-
         ],
     },
 };
