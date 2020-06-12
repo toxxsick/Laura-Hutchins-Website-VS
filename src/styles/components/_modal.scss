@@ -10,9 +10,8 @@
     @include widthHeight(100%, 100%);
     overflow: auto;
     background-color: rgb(0, 0, 0); //fallback colour
-    background-color: rgba(36, 41, 67, 0.97);
-    
-    
+    background-color: rgba(36, 41, 67, 0.9);
+
 
 
     .modal-content {
@@ -20,11 +19,9 @@
         position: relative;
         margin: auto;
         padding: 0;
-        width: 50%;
+        width: 30%;
         animation-name: animatetop;
         animation-duration: 0.5s;
-        
-        
 
 
         //keyframes  can be inside the class it's animating 
@@ -40,17 +37,31 @@
 
         .modal-body {
             background-color: $darkBlue;
-            
-            
-            
-        
 
             .close {
                 color: $white;
                 float: right;
                 font-size: 4rem;
                 font-weight: bold;
+                transition: color 1.5s;
 
+                &:hover,
+                &:focus {
+                    color: $aqua;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: color 1.5s;
+                }
+            }
+            .modal__button--size {
+                width: 100%;
+                display: block;
+                border: 0 none;
+                font-size: 2.5rem;
+                border-bottom: 0.1rem solid $blue;
+                background-color: $darkBlue;
+                color: $white;
+                padding: 0;
                 &:hover,
                 &:focus {
                     color: $aqua;
@@ -58,17 +69,7 @@
                     cursor: pointer;
                     transition: color 1s;
                 }
-            }
-            .modal__button--size {
-                width: 100%;
-                padding: 0.5rem;
-                display: block;
-                border: 0 none;
-                font-size: 2.5rem;
-                border-bottom: 0.1rem solid $blue;
-                background-color: $darkBlue;
-                color: $white;
-
+                
             }
             .modal__button--contactSize {
                 @extend .modal__button--size;
