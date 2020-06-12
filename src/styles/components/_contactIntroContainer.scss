@@ -31,63 +31,78 @@
 
 
 
-        .contactIntro__contactIntroBtnDiv {
+        .contactIntro__BtnDiv {
             margin: 1.5rem 0rem 1.5rem 0rem;
-
             @include marginLeftAndRight(auto);
-
             border: 0.2rem solid $white;
             width: 48%;
             padding: 1rem;
             transition: border 1s;
             color: $white;
             text-align: center;
-
-
-            .contactIntroBtnDiv__p {
-
-                font-size: 1.8rem;
-                display: inline;
-                transition: color 1s;
+            cursor: pointer;
+            .BtnDiv__a {
+                text-decoration: none;
+                
             }
 
-            .contactIntroBtnDiv__i {
+            .BtnDiv__p {
+                color: $white;
+                font-size: 1.8rem;
+                display: inline;
+                transition: color 1s;                
+            }
 
+            .BtnDiv__i {
+                color: $white;
                 vertical-align: top;
                 margin-left: 0.5rem;
                 margin-right: 0.5rem;
                 margin-top: 0.5rem;
-
-                transition: filter 0.5s;
+                transition: color 1s;
             }
-        }
 
-
-
-        .contactIntro__a:hover {
-            text-decoration: none;
-
-
-            .contactIntro__contactIntroBtnDiv {
+            &:hover{
                 border: 0.2rem solid $aqua;
-                transition: border 1s;
-
-
-                .contactIntroBtnDiv__p {
-                    text-decoration: none;
+                .BtnDiv__p {
                     color: $aqua;
                     transition: color 1s;
                 }
-
-                .contactIntroBtnDiv__i {
+                .BtnDiv__i {
                     color: $aqua;
                     transition: color 1s;
-
-
                 }
-
-
             }
         }
+
+        
+
+
+
+        //.contactIntro__a:hover {
+            //text-decoration: none;
+
+
+            //.contactIntro__contactIntroBtnDiv {
+                //border: 0.2rem solid $aqua;
+                //transition: border 1s;
+
+
+                //.contactIntroBtnDiv__p {
+                    //text-decoration: none;
+                    //color: $aqua;
+                    //transition: color 1s;
+                //}
+
+                //.contactIntroBtnDiv__i {
+                    //color: $aqua;
+                    //transition: color 1s;
+
+
+                //}
+
+
+            //}
+        //}
     }
 }
