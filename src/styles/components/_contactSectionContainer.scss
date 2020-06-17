@@ -3,6 +3,8 @@
 //-----------------------------------------------------------------------------------------------//
 .contactSectionContainer {
     border-bottom: 0.1rem solid $darkBlue;
+    
+    
 
 
 
@@ -12,12 +14,8 @@
 
     .contactSectionContainer__leftContactSection {
 
-        border-top: 0.1rem solid $darkBlue;
-
-
-
-
-
+        border-top: 0.1rem solid $blue;
+        border-bottom: 0.1rem solid $blue;
         .leftContactSection__name {
 
             @include marginLeftAndRight(6rem);
@@ -34,10 +32,11 @@
             }
 
             .name__input {
-                background-color: $darkBlue;
+                background-color: $blue;
+                
 
                 box-shadow: none;
-                border: 0rem solid;
+                border: 0.1rem solid $darkBlue;
                 width: 100%;
                 height: 3rem;
             }
@@ -50,9 +49,9 @@
             .name__input:focus {
                 border: 0.1rem solid $aqua;
                 color: $white;
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
-
+            
         }
 
 
@@ -92,12 +91,22 @@
                 border: 0 none;
                 padding: 1rem;
                 margin: 2.5rem 1.5rem 2.5rem 0rem;
+                transition: background-color 1s;
+                
+                &:hover {
+                    background-color: $aqua;
+                    transition: background-color 1s;
+                }
+                
+                
             }
 
             .message__button {
-                @extend .input__submit;
-                background: $blue;
+                
+                background-color: $blue;
                 color: $white;
+                font-size: 1.7rem;
+                text-decoration: none;
                 border: 0.1rem solid $white;
                 padding: 1rem 3.5rem 1rem 3.5rem;
                 transition: color 1s, border 1s;
@@ -109,7 +118,6 @@
                 }
             }
 
-
         }
     }
 
@@ -119,8 +127,11 @@
     //                                         rightContact section                                  //
     //-----------------------------------------------------------------------------------------------//
     .rightContactSection {
-        border-top: 0.1rem solid $darkBlue;
-        border-left: 0.1rem solid $darkBlue;
+        
+        padding: 0rem;
+        background-color: $darkBlue;
+        border-left: 0.1rem solid $blue;
+        border-top: 0.1rem solid $blue;
 
 
 
@@ -128,8 +139,9 @@
 
         .rightContactSection__email {
 
-            @include marginTopAndBottom(2.5rem);
-
+            margin-top: 5rem;
+            padding-bottom: 5rem;;
+            
             padding-left: 4rem;
             color: $white;
             display: inline-block;
@@ -154,15 +166,14 @@
                 padding-left: 14%;
                 color: $white;
                 font-size: 1.5rem;
-                border-bottom: 0.1rem dotted;
-                width: 86%;
-                transition: color 1s, border 1s;
+                text-decoration: underline;
+                transition: color 1s;
 
                 &:hover {
                     color: $aqua;
                     border-bottom: none;
                     text-decoration: none;
-                    transition: color 1s, border 1s;
+                    transition: color 1s;
                 }
             }
         }
@@ -187,6 +198,10 @@
         .rightContactSection__address {
             @extend .rightContactSection__email;
 
+            
+            
+            
+
 
             .address__img {
                 @extend .email__img;
@@ -199,9 +214,7 @@
             .address__a {
                 @extend .email__a;
 
-
             }
-
         }
     }
 }

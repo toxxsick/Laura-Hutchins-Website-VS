@@ -1,15 +1,17 @@
 //-----------------------------------------------------------------------------------------------//
 //                                         Contact Intro section                                 //
 //-----------------------------------------------------------------------------------------------//
-.contactIntroContainer {
-    background-color: $blue;
-
+.contactIntroContainer  {
+    
+    
 
     .contactIntroContainer__contactIntro {
 
         margin-top: 3rem;
         margin-bottom: 3rem;
-
+        
+        
+        
         .contactIntro__header--color {
             color: $white;
         }
@@ -75,34 +77,6 @@
             }
         }
 
-        
-
-
-
-        //.contactIntro__a:hover {
-            //text-decoration: none;
-
-
-            //.contactIntro__contactIntroBtnDiv {
-                //border: 0.2rem solid $aqua;
-                //transition: border 1s;
-
-
-                //.contactIntroBtnDiv__p {
-                    //text-decoration: none;
-                    //color: $aqua;
-                    //transition: color 1s;
-                //}
-
-                //.contactIntroBtnDiv__i {
-                    //color: $aqua;
-                    //transition: color 1s;
-
-
-                //}
-
-
-            //}
-        //}
+    
     }
 }
