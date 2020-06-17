@@ -2,6 +2,11 @@ export const elements = {
     modal: document.querySelector('.modal'),
     modalBtn: document.querySelector('.modalBtn'),
     span: document.querySelector('.close'),
+    messageInput: document.querySelector('.message__input'),
+    nameInput: document.querySelector('.name__input'),
+    emailInput: document.querySelector('.email__input'),
+    clearBTN: document.querySelector('.message__button'),
+    
 };
 
 export let a = 98765;

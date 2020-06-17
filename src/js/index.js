@@ -23,6 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    elements.clearBTN.onclick = () => {
+        elements.messageInput.value = ``;
+        elements.nameInput.value = ``;
+        elements.emailInput.value = ``;
+    
+    }
+        
+    
+
 });
 
 
