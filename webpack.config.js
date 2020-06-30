@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html'
+            template: './src/index.html',
         }) //creates a final index.html with bundle.js scripted to it in dist using pluggin.
     ],
     module: {
@@ -28,9 +28,9 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                 'style-loader', // 3 injects style into DOM
-                 'css-loader',   // 2 turns css into common js
-                 'sass-loader'   // 1 turns sass into css
+                 'style-loader', // 3) injects style into DOM
+                 'css-loader',   // 2) turns css into common js
+                 'sass-loader'   // 1) turns sass into css
                 ],
             },
         ],

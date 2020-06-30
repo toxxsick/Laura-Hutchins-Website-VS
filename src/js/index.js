@@ -7,6 +7,7 @@ console.log(`this is ${a}`);
 
 
 
+
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -24,16 +25,39 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     elements.clearBTN.onclick = () => {
-        elements.messageInput.value = ``;
-        elements.nameInput.value = ``;
-        elements.emailInput.value = ``;
-    
+        [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
     }
-        
     
 
-});
+    elements.sectionOneID.onclick = () => {
+        //rest of the categories disappear
+        const sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
+        
+        //Hide all categories except the one clicked.
+        sectionsID.forEach(el => {
+            el === sectionsID[0] ? el.style.display = "block" : el.style.display = "none";
+        });
 
+        //change div attributes to fit size of browser screen
+        sectionsID[0].classList.remove('col-xl-5');
+        sectionsID[0].classList.add('col-xl-12');
+
+        elements.sectionsContainerSection.style.height = '100%';
+        
+        //center image
+        elements.cateImgOne.style.width = '50%';
+        //add or display a p tag under centered image
+        //add display all category images button
+        
+
+
+
+
+        //
+    }
+ 
+        
+});
 
 
 
