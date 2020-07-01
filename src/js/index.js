@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
         
         //center image
         elements.cateImgOne.style.width = '50%';
+
+        //hide title
+        elements.cateSection.style.display = 'none';
         //add or display a p tag under centered image
         //add display all category images button
         
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        //
+        
     }
  
         

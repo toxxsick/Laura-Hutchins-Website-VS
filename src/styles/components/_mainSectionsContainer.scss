@@ -17,6 +17,7 @@
                 position: relative;
                 @include categoryImgFilter();
                 transition: filter 1s;
+                cursor: pointer;
 
                 &--largerSize {
                     width: 113%;
@@ -49,10 +50,58 @@
             }
 
             &:hover {
-                cursor: pointer;
-
                 .section__img {
                     filter: none;
+                }
+            }
+
+            .section__process {
+                display: block;
+                .process__p--style {
+                    font-size: 3rem;
+                    color: $white;
+                }
+
+                .process__divOne {
+                    background-color: $aqua;
+                    height: 100%;
+                    width: 80%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 3rem;
+                    .divOne__img {
+                        float: left;
+                        width: 30%;
+                    }
+                    .divOne__p {
+                        display: inline;
+                        font-size: 1.5rem;
+                    }
+                }
+                
+                .process__divTwo {
+                    @extend .process__divOne;
+                    .divTwo__img {
+                        @extend .divOne__img;
+                        float: right;
+                    }
+                    .divTwo__p {
+                        @extend .divOne__p;
+                        
+                    }
+                }
+
+                .process__divThree {
+                    @extend .process__divOne;
+                    .divThree__img {
+                        float: left;
+                        width: 30%;
+                    }
+                    .divThree__p {
+                        display: inline;
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
