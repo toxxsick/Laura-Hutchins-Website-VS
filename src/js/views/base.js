@@ -14,7 +14,8 @@ export const elements = {
     sectionSixID: document.getElementById('sectionSixDiv'),
     sectionsContainerSection: document.querySelector('.sectionsContainer__section'),
     cateImgOne: document.getElementById('cateImgOne'),
-    cateSection: document.querySelector('.section__centered'),
+    sectionCentered: document.querySelector('.section__centered'),
+    centeredI: document.querySelector('.centered__i'),
 };
 
 export let a = 98765;

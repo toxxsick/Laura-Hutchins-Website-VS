@@ -47,10 +47,22 @@ document.addEventListener("DOMContentLoaded", function () {
         //center image
         elements.cateImgOne.style.width = '50%';
 
-        //hide title
-        elements.cateSection.style.display = 'none';
-        //add or display a p tag under centered image
-        //add display all category images button
+        //adjust position of position__centered
+        elements.sectionCentered.style.top = '3%';
+
+        //remove blur 
+        elements.cateImgOne.style.filter = 'none';
+
+        //scrolls according to center of page where image is displayed clearly
+        elements.cateImgOne.scrollIntoView();
+
+        //all category images / forward / go back button appaers
+        
+       
+        
+        
+        
+        
         
 
 
