@@ -16,6 +16,11 @@ export const elements = {
     cateImgOne: document.getElementById('cateImgOne'),
     sectionCentered: document.querySelector('.section__centered'),
     centeredI: document.querySelector('.centered__i'),
+    navbar: document.querySelector('.wrapper__navbar'),
+    leftarrow: document.querySelector('.fa-arrow-left'),
+
+    
+
 };
 
 export let a = 98765;

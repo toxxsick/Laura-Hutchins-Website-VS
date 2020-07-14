@@ -2,7 +2,10 @@
 //                                         INTRO SECTION                                         //
 //-----------------------------------------------------------------------------------------------//
 .introSection {
+    
     .introSection--background {
+        padding-top: 5rem;
+        
         height: 70rem;
         background-image: url("/Img/logo.png");
         background-attachment: fixed;
@@ -46,7 +49,7 @@
                 font-weight: 600;
                 transition: color 1s, border 1s, background 1s;
                 position: relative;
-                top: 5rem;
+                top: 20rem;
 
                 @media only screen and (max-width: 992px) {
                     top: 1.5rem;

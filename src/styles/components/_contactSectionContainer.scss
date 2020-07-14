@@ -132,7 +132,7 @@
         
         padding: 0rem;
         background-color: $darkBlue;
-        border-left: 0.1rem solid $blue;
+        border-left: 1px solid rgba(212, 212, 255, 0.1);
         border-top: 0.1rem solid $blue;
 
 
@@ -148,7 +148,7 @@
             color: $white;
             display: inline-block;
             width: 100%;
-            border-bottom: 0.1rem solid $blue;
+            border-bottom: 1px solid rgba(212, 212, 255, 0.1);
 
             .email__img {
                 height: 3.5rem;
@@ -210,8 +210,10 @@
 
             .address__a {
                 @extend .email__a;
+                
 
             }
+            border-bottom: 0.1rem solid $blue;
         }
     }
 }
