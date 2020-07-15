@@ -17,7 +17,8 @@ export const elements = {
     sectionCentered: document.querySelector('.section__centered'),
     centeredI: document.querySelector('.centered__i'),
     navbar: document.querySelector('.wrapper__navbar'),
-    leftarrow: document.querySelector('.fa-arrow-left'),
+    leftArrow: document.querySelector('.fa-arrow-left'),
+    rightArrow: document.querySelector('.fa-arrow-right'),
 
     
 

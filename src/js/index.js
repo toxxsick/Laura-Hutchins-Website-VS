@@ -7,7 +7,7 @@ import {elements} from '../js/views/base';
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
-    const sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
+    let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
     
 
     //--------------------sroll navigation bar switch---------------------//
@@ -39,45 +39,88 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     //------------------------------category sections image clicked-------------------//
-    sectionsID.forEach(el => {
-        el.onclick = (el) => {
-            let target = event.target;
-
-            if(target.closest('#sectionOneDiv')) {
-                sectionsID[0].setAttribute('data-clicked', true)
-                
-            } else if (target.closest('#sectionTwoDiv')) {
-                sectionsID[1].setAttribute('data-clicked', true)
-                
-            } else if (target.closest('#sectionThreeDiv')) {
-                sectionsID[2].setAttribute('data-clicked', true)
-                
-            } else if (target.closest('#sectionFourDiv')) {
-                sectionsID[3].setAttribute('data-clicked', true)
-                
-            } else if (target.closest('#sectionFiveDiv')) {
-                sectionsID[4].setAttribute('data-clicked', true)
-                
-            } else if (target.closest('#sectionSixDiv')) {
-                sectionsID[5].setAttribute('data-clicked', true)
-                
-            }
-            checkDataset();
-            
-
-            
-
-
-        }
-    })
-        
-       
 
     //checks if dataset clickd is true: if true then display image
     function checkDataset() {
         sectionsID.forEach(el => {
             el.dataset.clicked === 'true' ? changeSize(el) : displayNone(el)
         });
+
+    }
+
+    function turnOffDataSet() {
+        sectionsID.forEach(el => {
+             el.dataset.clicked = 'false';
+             
+             
+             
+        });
+    }
+
+    function turnOnDataSet(id) {
+        console.log(id);
+        sectionsID[id].dataset.clicked = 'true';
+        checkDataset();
+        changeSize(sectionsID[id]);
+
+        
+    }
+
+    sectionsID.forEach(el => {
+        el.onclick = () => {
+            let target = event.target;
+
+            if(target.closest('#sectionOneDiv')) {
+
+                sectionsID[0].dataset.clicked = 'true';
+                console.log(el.dataset.clicked);
+
+            } else if (target.closest('#sectionTwoDiv')) {
+
+                sectionsID[1].dataset.clicked = 'true';
+                
+            } else if (target.closest('#sectionThreeDiv')) {
+
+                sectionsID[2].dataset.clicked = 'true';
+                
+            } else if (target.closest('#sectionFourDiv')) {
+
+                sectionsID[3].dataset.clicked = 'true';
+                
+            } else if (target.closest('#sectionFiveDiv')) {
+
+                sectionsID[4].dataset.clicked = 'true';
+                
+            } else if (target.closest('#sectionSixDiv')) {
+
+                sectionsID[5].dataset.clicked = 'true';
+            }
+            checkDataset();
+                    
+        }
+    })
+        
+    elements.leftArrow.onclick = () => {
+        let clickedOne;
+        
+        //find current image with clicked to be true
+        sectionsID.forEach((el, index) => { 
+            
+             if(el.getAttribute('data-clicked') === 'true') {
+                clickedOne = index;
+            
+             } else {
+                
+             };
+        });
+        turnOffDataSet();
+        turnOnDataSet(clickedOne - 1);
+        
+           
+    }
+
+    elements.rightArrow.onclick = () => {
+        alert(`TO DO! - Right`);
     }
 
     
@@ -92,10 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         el.getElementsByTagName('img')[0].style.filter = 'none';
         el.getElementsByTagName('img')[0].style.width = '50%';
         el.scrollIntoView();
-
         //disable title section of category images
-        
-
         
     }
 
