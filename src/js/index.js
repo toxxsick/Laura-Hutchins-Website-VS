@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
     
-    //------------------------------category sections image clicked-------------------//
+    //-----------------------------------------------category sections image clicked-------------------------//
 
     //checks if dataset clickd is true: if true then display image
     function checkDataset() {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function turnOnDataSet(id) {
-        console.log(id);
+        //console.log(id);
         sectionsID[id].dataset.clicked = 'true';
         checkDataset();
         changeSize(sectionsID[id]);
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(target.closest('#sectionOneDiv')) {
 
                 sectionsID[0].dataset.clicked = 'true';
-                console.log(el.dataset.clicked);
+                //console.log(el.dataset.clicked);
 
             } else if (target.closest('#sectionTwoDiv')) {
 
@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
         
     elements.leftArrow.onclick = () => {
+        
+
         let clickedOne;
         
         //find current image with clicked to be true
@@ -113,6 +115,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 
              };
         });
+
+        //check if clickedOne is at 0 if it is then go to 6
+        if(clickedOne === 0) {
+            clickedOne = sectionsID.length;
+        }
+
+        //console.log(clickedOne + 1);
+
         turnOffDataSet();
         turnOnDataSet(clickedOne - 1);
         
@@ -120,7 +130,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     elements.rightArrow.onclick = () => {
-        alert(`TO DO! - Right`);
+
+        let clickedOne;
+
+        
+        //find current image with clicked to be true
+        sectionsID.forEach((el, index) => { 
+            
+             if(el.getAttribute('data-clicked') === 'true') {
+                clickedOne = index;
+            
+             } else {
+                
+             };
+
+        });
+
+        
+        //check if clickedOne is at position 5 if it is then go to 0
+        if(clickedOne === sectionsID.length - 1) {
+            clickedOne = 0;
+            
+        } else {
+            clickedOne++;
+        }
+         
+        turnOffDataSet();
+        turnOnDataSet(clickedOne);
+        
     }
 
     
@@ -145,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    //--------------------------------contact section clear button---------------//
+    //---------------------------------------------contact section clear button-----------------------------//
     elements.clearBTN.onclick = () => {
         [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
     }
