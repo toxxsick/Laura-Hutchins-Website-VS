@@ -16,6 +16,7 @@ export const elements = {
     sectionsContainerSection: document.querySelector('.sectionsContainer__section'),
     cateImgOne: document.getElementById('cateImgOne'),
     sectionCentered: document.querySelector('.section__centered'),
+    sectionCenteredGrp: document.querySelectorAll('.section__centered'),
     centeredI: document.querySelector('.centered__i'),
     navbar: document.querySelector('.wrapper__navbar'),
     leftArrow: document.querySelector('.fa-arrow-left'),

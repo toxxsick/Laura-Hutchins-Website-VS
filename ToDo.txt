@@ -1,7 +1,9 @@
 
-disable all category images titles when enlarged.
+disable all category images titles when enlarged. >
 disable nav buttons when up arrow is clicked >
 when category button is clicked, rest of the cate section fades, the one enlarges.
 sort out hardcode and implement classes 
+tidy up code
+
 
 

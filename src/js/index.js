@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (document.documentElement.scrollTop >= 1075 && document.documentElement.scrollTop <= 2520) {
             
             elements.navbar.style.backgroundColor = '#242943';
-            if(shown === true) {
-                nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
-            }
+
+            checkShown()
+            
             
         } else {
             
             elements.navbar.style.backgroundColor = 'transparent';
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
+            
             
         }
     };
@@ -37,13 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //when clicking anywhere outside the modal, changes the model css to none;
     window.onclick = (event) => {
+
         if(event.target === elements.modal) {
+
             elements.modal.style.display = 'none';
+
         }
+
     };
 
-    
-    
     //-----------------------------------------------category sections image clicked-------------------------//
 
     //checks if dataset clickd is true: if true then display image
@@ -80,10 +82,48 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
 
-    function displayNavBtns() {
+    
 
-        shown = true;
-        
+    function toggleShown(arg) {
+
+        if(arg === true) {
+
+            shown = true;
+
+        } else {
+
+            shown = false;
+
+        }
+
+    }
+
+    function checkShown() {
+
+        if(shown === true) {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
+
+        } else {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
+
+        }
+
+    }
+
+    function toggleCateTitles(arg) {
+
+        if(arg === true) {
+
+            nodeToArray(elements.sectionCenteredGrp).forEach(el => el.style.display = 'none');
+
+        } else {
+
+            nodeToArray(elements.sectionCenteredGrp).forEach(el => el.style.display = 'block');
+
+        }
+
     }
 
     sectionsID.forEach(el => {
@@ -115,10 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (target.closest('#sectionSixDiv')) {
 
                 sectionsID[5].dataset.clicked = 'true';
+                
             }
+
             checkDataset();
-            displayNavBtns();
+            toggleShown(true)
             displayCtrlBtns();
+            toggleCateTitles(true); 
+            
         }
 
     })
@@ -179,27 +223,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     elements.upArrow.onclick = () => {
 
-        //check one was clicked or is currently displayed
-        let clickedOne;
-        //find current image with clicked to be true
-        sectionsID.forEach((el, index) => { 
-            
-             if(el.getAttribute('data-clicked') === 'true') {
-
-                clickedOne = index;
-            
-             };
-
-        });
-
         //make category sections as false
         turnOffDataSet();
 
         //displaySize back to normal layout to the one which was true
-        defaultSize(clickedOne)
-        shown = false;
+        defaultSize()
+        toggleShown(false);
+        checkShown();
+        toggleCateTitles(false); 
         
-
     }
 
     
@@ -217,12 +249,10 @@ document.addEventListener("DOMContentLoaded", function () {
         //disable title section of category images
     }
 
-    function defaultSize(index) {
-
-        console.log(index)
-
+    function defaultSize() {
 
         sectionsID.forEach((el,index) => {
+
             el.style.display = 'block'
             el.style.height = '35rem'
             el.getElementsByTagName('img')[0].style.width = '100%';
@@ -232,16 +262,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 sectionsID[index].classList.remove('col-xl-12');
                 sectionsID[index].classList.add('col-xl-5');
+
             } else {
 
                 sectionsID[index].classList.remove('col-xl-12');
         
             }
+
         });
         
-       
-
-
     }
 
     function displayNone(el) {
