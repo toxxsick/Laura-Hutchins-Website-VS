@@ -20,30 +20,52 @@
         }
     }
 
-    .navbar__btn {
-        border: 0 none;
-        @include widthHeight(2.5rem, 2.5rem);
-        background-color: transparent;
-        width: 10rem;
-        float: right;
+    .navbar__menuGrp {
+
+        display: inline;
+        margin-left: 35%;
+        
+        
+        
+        
+        .menuGrp__i {
+
+            
+            display: none;
+            font-size: 1.9rem;
+            color: $white;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            transition: color 1s, display 1s;
+            
+            &:hover {
+                color: $aqua;
+                transition: color 1s;
+            }
+        }
+
         
 
-        &--size {
+        .menuGrp__btn {
+            margin-left: 1rem;
+            border: 0 none;
+            @include widthHeight(2.5rem, 2.5rem);
+            background-color: transparent;
+            width: 10rem;
             color: $white;
             font-size: 1.9rem;
             transition: color 1s;
+            float: right;
+            .btn__i {
+                margin-left: 0.8rem;
+                font-size: 1.8rem;
+            }
+            &:hover {
+                color: $aqua;
+                transition: color 1s;
+            }
         }
 
-        .btn__i {
-            margin-left: 0.8rem;
-            font-size: 1.8rem;
-
-        }
-
-        &:hover {
-            color: $aqua;
-            transition: color 1s;
-            
-        }
     }
 }

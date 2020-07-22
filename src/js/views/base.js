@@ -1,4 +1,5 @@
 export const elements = {
+    
     modal: document.querySelector('.modal'),
     modalBtn: document.querySelector('.modalBtn'),
     span: document.querySelector('.close'),
@@ -19,10 +20,25 @@ export const elements = {
     navbar: document.querySelector('.wrapper__navbar'),
     leftArrow: document.querySelector('.fa-arrow-left'),
     rightArrow: document.querySelector('.fa-arrow-right'),
-
-    
+    upArrow: document.querySelector('.fa-arrow-up'),
+    menuGrpI: document.querySelectorAll('.menuGrp__i'),
 
 };
 
-export let a = 98765;
+
+
+export function nodeToArray(el) {
+
+    let node = el;
+    let array = Array.from(node);
+    return array;
+    
+}
+
+
+
+
+
+
+
 

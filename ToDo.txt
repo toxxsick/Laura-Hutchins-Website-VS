@@ -1,9 +1,7 @@
-category item clicked >>
 
+disable all category images titles when enlarged.
+disable nav buttons when up arrow is clicked >
+when category button is clicked, rest of the cate section fades, the one enlarges.
+sort out hardcode and implement classes 
 
-2) rest of category images disappear, //
-3) width of image becomes width of site, center the image, paragraph turns up//
-
-4) go back button is available, if clicked category image, paragraph disappears, 
-5) all category images turn up. 
 

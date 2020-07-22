@@ -1,24 +1,30 @@
 
 import '../styles/styles.scss';
 
-import {elements} from '../js/views/base';
+import {elements, nodeToArray} from '../js/views/base';
 
 
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
     let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
-    
+    let shown = false;
 
     //--------------------sroll navigation bar switch---------------------//
     window.onscroll = () =>  {
         
-        if (document.documentElement.scrollTop >= 1075) {
+        if (document.documentElement.scrollTop >= 1075 && document.documentElement.scrollTop <= 2520) {
             
             elements.navbar.style.backgroundColor = '#242943';
+            if(shown === true) {
+                nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
+            }
+            
         } else {
             
             elements.navbar.style.backgroundColor = 'transparent';
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
+            
         }
     };
     
@@ -42,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //checks if dataset clickd is true: if true then display image
     function checkDataset() {
+
         sectionsID.forEach(el => {
             el.dataset.clicked === 'true' ? changeSize(el) : displayNone(el)
         });
@@ -49,31 +56,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function turnOffDataSet() {
+
         sectionsID.forEach(el => {
              el.dataset.clicked = 'false';
-             
-             
-             
         });
+
     }
 
     function turnOnDataSet(id) {
-        //console.log(id);
+
         sectionsID[id].dataset.clicked = 'true';
         checkDataset();
         changeSize(sectionsID[id]);
 
+    }
+
+    function displayCtrlBtns() {
+
+        let nodeList = elements.menuGrpI
+        let arrayList = Array.from(nodeList)
+
+        arrayList.forEach(el => el.style.display = 'inline');
+        
+    }
+
+    function displayNavBtns() {
+
+        shown = true;
         
     }
 
     sectionsID.forEach(el => {
+
         el.onclick = () => {
+
             let target = event.target;
 
             if(target.closest('#sectionOneDiv')) {
 
                 sectionsID[0].dataset.clicked = 'true';
-                //console.log(el.dataset.clicked);
 
             } else if (target.closest('#sectionTwoDiv')) {
 
@@ -96,24 +117,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 sectionsID[5].dataset.clicked = 'true';
             }
             checkDataset();
-                    
+            displayNavBtns();
+            displayCtrlBtns();
         }
+
     })
         
     elements.leftArrow.onclick = () => {
-        
 
         let clickedOne;
-        
         //find current image with clicked to be true
         sectionsID.forEach((el, index) => { 
             
              if(el.getAttribute('data-clicked') === 'true') {
+                 
                 clickedOne = index;
-            
-             } else {
-                
-             };
+        
+             } 
+
         });
 
         //check if clickedOne is at 0 if it is then go to 6
@@ -121,43 +142,64 @@ document.addEventListener("DOMContentLoaded", function () {
             clickedOne = sectionsID.length;
         }
 
-        //console.log(clickedOne + 1);
-
         turnOffDataSet();
         turnOnDataSet(clickedOne - 1);
         
-           
     }
 
     elements.rightArrow.onclick = () => {
 
         let clickedOne;
-
-        
         //find current image with clicked to be true
         sectionsID.forEach((el, index) => { 
             
              if(el.getAttribute('data-clicked') === 'true') {
+
                 clickedOne = index;
             
-             } else {
-                
              };
 
         });
 
-        
         //check if clickedOne is at position 5 if it is then go to 0
         if(clickedOne === sectionsID.length - 1) {
+
             clickedOne = 0;
             
         } else {
+
             clickedOne++;
+
         }
          
         turnOffDataSet();
         turnOnDataSet(clickedOne);
         
+    }
+
+    elements.upArrow.onclick = () => {
+
+        //check one was clicked or is currently displayed
+        let clickedOne;
+        //find current image with clicked to be true
+        sectionsID.forEach((el, index) => { 
+            
+             if(el.getAttribute('data-clicked') === 'true') {
+
+                clickedOne = index;
+            
+             };
+
+        });
+
+        //make category sections as false
+        turnOffDataSet();
+
+        //displaySize back to normal layout to the one which was true
+        defaultSize(clickedOne)
+        shown = false;
+        
+
     }
 
     
@@ -173,23 +215,48 @@ document.addEventListener("DOMContentLoaded", function () {
         el.getElementsByTagName('img')[0].style.width = '50%';
         el.scrollIntoView();
         //disable title section of category images
-        
     }
 
-   
+    function defaultSize(index) {
+
+        console.log(index)
+
+
+        sectionsID.forEach((el,index) => {
+            el.style.display = 'block'
+            el.style.height = '35rem'
+            el.getElementsByTagName('img')[0].style.width = '100%';
+            el.getElementsByTagName('img')[0].style.filter = '';
+            
+            if(index === 0 || index === 3 || index === 4) {
+                
+                sectionsID[index].classList.remove('col-xl-12');
+                sectionsID[index].classList.add('col-xl-5');
+            } else {
+
+                sectionsID[index].classList.remove('col-xl-12');
+        
+            }
+        });
+        
+       
+
+
+    }
+
     function displayNone(el) {
+
         el.style.display = 'none'; 
+
     }
 
 
     //---------------------------------------------contact section clear button-----------------------------//
     elements.clearBTN.onclick = () => {
-        [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
-    }
 
-    
- 
-        
+        [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
+
+    }
 });
 
 

@@ -116,24 +116,4 @@
             }
         }
     }
-
-    .container-fluid__navigation {
-        .navigation__i {
-            font-size: 2rem;
-            color: $white;
-            top: 100rem;
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
-            cursor: pointer;
-            transition: color 1s;
-            &:hover {
-                color: $aqua;
-                transition: color 1s;
-            }
-            
-        }
-
-    }
-
-    
 }
