@@ -10,4 +10,11 @@ bottom section: re adjust position and size >
 category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
 finalise layouts for all sections, finalise layout for responsive layout.
 
-nav bar cateimg btns needs to be responsive
+look at media only at navbar.scss >
+redo navbar menu and burger icon color change >
+
+
+categoryOne size at sm is slightly to small, needs increasing >
+categoryThree size at sma is slightly to small, needs increasing >
+contact section at sm, to much empty space at top.  >
+contact section Clear btn needs to be adjusted to middle >

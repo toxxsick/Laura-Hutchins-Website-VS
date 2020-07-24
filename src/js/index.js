@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
     //-----------------------------navigation bar--------------------------//
     //on click makes modal css block
-    elements.menuGrpBtn.onclick = () => elements.modal.style.display = 'block';
+    elements.menuGrpBtnGrp.onclick = () => elements.modal.style.display = 'block';
     
     //on clicking the span button changes modal css to none;
-    elements.span.onclick = () => elements.modal.style.display = 'none';
+    elements.closeBtn.onclick = () => elements.modal.style.display = 'none';
 
     //when clicking anywhere outside the modal, changes the model css to none;
     window.onclick = (event) => {

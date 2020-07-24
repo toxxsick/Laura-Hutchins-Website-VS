@@ -1,8 +1,8 @@
 export const elements = {
     
     modal: document.querySelector('.modal'),
-    menuGrpBtn: document.querySelector('.menuGrp__btn'),
-    span: document.querySelector('.close'),
+    menuGrpBtnGrp: document.querySelector('.menuGrp__BtnGrp'),
+    closeBtn: document.querySelector('.close'),
     messageInput: document.querySelector('.message__input'),
     nameInput: document.querySelector('.name__input'),
     emailInput: document.querySelector('.email__input'),

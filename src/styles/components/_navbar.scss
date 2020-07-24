@@ -49,51 +49,78 @@
     
         .menuGrp__i {
 
-            
             display: none;
             font-size: 1.9rem;
             color: $white;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             cursor: pointer;
-            transition: color 1s, display 1s;
+            transition: color 1s;
             
             &:hover {
                 color: $aqua;
                 transition: color 1s;
+            }
+            
+        }
+
+        
+        .menuGrp__BtnGrp {
+
+            float: right;
+            cursor: pointer;
+            margin-right: 2rem;
+
+            .menuGrp__btn {
+                
+                border: 0 none;
+                background-color: transparent;
+                color: $white;
+                transition: color 1s;
+                font-size: 1.9rem;
+            
+                @media only screen and (max-width: 540px) {
+                    
+                    display: none;
+                    
+                }
+            }
+            
+            .btn__i {
+
+                margin-left: 0.5rem;
+                font-size: 1.9rem;
+                color: $white;
+                transition: color 1s;
+
+                @media only screen and (max-width: 540px) {
+                    
+                    padding-top: 0.95rem;
+                    
+                }
+
+            }
+
+            &:hover {
+
+                .menuGrp__btn {
+
+                    color: $aqua;
+                    transition: color 1s;
+
+                }
+
+                .btn__i {
+                    
+                        color: $aqua;
+                        transition: color 1s;
+                    
+                }
             }
         }
 
         
-
-        .menuGrp__btn {
-            margin-left: 1rem;
-            border: 0 none;
-            @include widthHeight(2.5rem, 2.5rem);
-            background-color: transparent;
-            width: 10rem;
-            color: $white;
-            font-size: 1.9rem;
-            transition: color 1s;
-            float: right;
-
-
-
-            @media only screen and (max-width: 992px) {
-                
-                
-            }
-            
-
-            .btn__i {
-                margin-left: 0.8rem;
-                font-size: 1.8rem;
-            }
-            &:hover {
-                color: $aqua;
-                transition: color 1s;
-            }
-        }
+        
 
     }
 }
