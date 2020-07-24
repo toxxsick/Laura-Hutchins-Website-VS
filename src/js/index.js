@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //--------------------sroll navigation bar switch---------------------//
     window.onscroll = () =>  {
         
-        if (document.documentElement.scrollTop >= 1075 && document.documentElement.scrollTop <= 2520) {
+        if (document.documentElement.scrollTop >= 1075) {
             
             elements.navbar.style.backgroundColor = '#242943';
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     //-----------------------------navigation bar--------------------------//
     //on click makes modal css block
-    elements.modalBtn.onclick = () => elements.modal.style.display = 'block';
+    elements.menuGrpBtn.onclick = () => elements.modal.style.display = 'block';
     
     //on clicking the span button changes modal css to none;
     elements.span.onclick = () => elements.modal.style.display = 'none';
@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    
     sectionsID.forEach(el => {
 
         el.onclick = () => {
@@ -135,10 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if(target.closest('#sectionOneDiv')) {
 
                 sectionsID[0].dataset.clicked = 'true';
+               
 
             } else if (target.closest('#sectionTwoDiv')) {
 
                 sectionsID[1].dataset.clicked = 'true';
+                
                 
             } else if (target.closest('#sectionThreeDiv')) {
 
@@ -155,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (target.closest('#sectionSixDiv')) {
 
                 sectionsID[5].dataset.clicked = 'true';
-                
+
             }
 
             checkDataset();
@@ -242,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
         el.style.display = 'block';
         el.classList.remove('col-xl-5');
         el.classList.add('col-xl-12');
+        
         el.style.height = '100%';
         el.getElementsByTagName('img')[0].style.filter = 'none';
         el.getElementsByTagName('img')[0].style.width = '50%';
@@ -286,6 +290,7 @@ document.addEventListener("DOMContentLoaded", function () {
         [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
 
     }
+
 });
 
 

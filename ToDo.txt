@@ -1,9 +1,13 @@
 
 disable all category images titles when enlarged. >
 disable nav buttons when up arrow is clicked >
-when category button is clicked, rest of the cate section fades, the one enlarges.
-sort out hardcode and implement classes 
-tidy up code
 
+navbar: top and bottom gap needs to be increased > 
+introduction: re adjust position and sizes of intro, get started button needs adjusting when clicked > 
+contact section: readjust position and size of info >
+bottom section: re adjust position and size >
 
+category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
+finalise layouts for all sections, finalise layout for responsive layout.
 
+nav bar cateimg btns needs to be responsive

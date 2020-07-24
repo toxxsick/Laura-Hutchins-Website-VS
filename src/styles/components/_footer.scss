@@ -36,16 +36,17 @@
 
             .creditContainer__p {
                 font-size: 1.1rem;
-                color: $white;
+                font-weight: 900;
+                color: $lighterGrey;
                 font-weight: 400;
                 display: inline-block;
                 padding: 0 1rem 0 1rem;
-                border-right: 0.1rem solid $white;
+                border-right: 0.1rem solid $lighterGrey;
 
 
 
                 .creditContainer__a {
-                    color: $white;
+                    color: $lighterGrey;
                     border-bottom: 0.1rem dotted;
                     transition: color 1s, border 1s;
 

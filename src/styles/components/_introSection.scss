@@ -8,13 +8,13 @@
         
         height: 70rem;
         background-image: url("/Img/logo.png");
+        background-color: $blue;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
-
-
+        
         .introSection--wrapper {
             display: inline-block;
             position: relative;
@@ -43,7 +43,7 @@
 
             .wrapper--button {
                 padding: 1rem;
-                background: none;
+                background: transparent;
                 border: 0.2rem solid $white;
                 color: $white;
                 font-weight: 600;
@@ -51,8 +51,10 @@
                 position: relative;
                 top: 20rem;
 
+                
+
                 @media only screen and (max-width: 992px) {
-                    top: 1.5rem;
+                    top: 15rem;
                 }
 
                 &:hover {
