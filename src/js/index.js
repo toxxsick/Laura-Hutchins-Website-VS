@@ -10,24 +10,26 @@ import {view} from './views/view';
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
+    
+
 
      const controller = function() {
 
         let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
         let shown = false;
 
+        
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
 
         if (document.documentElement.scrollTop >= 1075) {
-            
-            elements.navbar.style.backgroundColor = '#242943';
 
+            view.bgChange(true);
             checkShown()
             
         } else {
             
-            elements.navbar.style.backgroundColor = 'transparent';
+            view.bgChange(false);
             
         }
     };
