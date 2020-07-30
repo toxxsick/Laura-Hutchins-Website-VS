@@ -7,8 +7,6 @@ introduction: re adjust position and sizes of intro, get started button needs ad
 contact section: readjust position and size of info >
 bottom section: re adjust position and size >
 
-category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
-finalise layouts for all sections, finalise layout for responsive layout.
 
 look at media only at navbar.scss >
 redo navbar menu and burger icon color change >
@@ -18,3 +16,29 @@ categoryOne size at sm is slightly to small, needs increasing >
 categoryThree size at sma is slightly to small, needs increasing >
 contact section at sm, to much empty space at top.  >
 contact section Clear btn needs to be adjusted to middle >
+
+
+TO DO: 
+
+JS: category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
+finalise layouts for all sections, finalise layout for responsive layout.
+
+JS: move code from controller to view.js for functions, methods, variables which adjust html DOM
+
+///////laura's message/////////////////
+
+"Laura Hutchins is a freelance digital illustrator from the United Kingdom."
+
+"She lives with her boyfriend and their Romanian rescue dog in the seaside town of Eastbourne. For most of her life she has been in and around coastal towns; her love of art was really cemented due to her grandmother, who would proudly hang up her Pokémon inspired crayon doodles on the refrigerator when she was young.
+
+Laura was fortunate enough to find herself taught by encouraging and inspiring tutors throughout middle school, so much so that she achieved an A in GCSE art which provided the confidence she needed to apply for college; wherein she graduated with a BTEC National Diploma from Sussex Downs College in Graphics / Illustration. 
+
+The next academic step was university, the seaside town of Falmouth reeled her in, where she studied for three years. With portfolio in hand she visited London, Paris and New York, learning firsthand what being an artist in the real world would entail. Laura graduated from University College Falmouth in 2009 with a BA Honours in Illustration.
+
+Since graduating, Laura has dipped her toe into the tattoo industry as an apprentice with a local shop; began a print on demand business to promote her art and as a means to spur herself into acquiring new skills and learning more about graphic design and photography. 
+
+You can stay up to date with whatever she’s become obsessed with lately by searching for her online under the name ‘illustratelaw’ - a portmanteau of ‘illustrator’ and ‘laura’ or ‘law’ an affectionate nickname given to her by her friends. It also serves as a reminder for her to not forget to “ILLUSTRATE, LAW!”
+
+category titles: Illustration, graphic design, tattoo, photography, designed with products in mind (or merch), old work
+
+///////Laura's message/////////////////

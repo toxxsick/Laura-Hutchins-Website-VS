@@ -79,7 +79,7 @@
                 transition: color 1s;
                 font-size: 1.9rem;
             
-                @media only screen and (max-width: 540px) {
+                @media only screen and (max-width: 600px) {
                     
                     display: none;
                     
@@ -92,12 +92,9 @@
                 font-size: 1.9rem;
                 color: $white;
                 transition: color 1s;
+                padding-top: 0.95rem;
 
-                @media only screen and (max-width: 540px) {
-                    
-                    padding-top: 0.95rem;
-                    
-                }
+                
 
             }
 

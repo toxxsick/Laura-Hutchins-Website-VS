@@ -1,29 +1,33 @@
 
 import '../styles/styles.scss';
-
 import {elements, nodeToArray} from '../js/views/base';
+import {view} from './views/view';
+
+
+
 
 
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
-    let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
-    let shown = false;
 
-    //--------------------sroll navigation bar switch---------------------//
-    window.onscroll = () =>  {
-        
+     const controller = function() {
+
+        let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
+        let shown = false;
+
+        //--------------------sroll navigation bar switch---------------------//
+        window.onscroll = () =>  {
+
         if (document.documentElement.scrollTop >= 1075) {
             
             elements.navbar.style.backgroundColor = '#242943';
 
             checkShown()
             
-            
         } else {
             
             elements.navbar.style.backgroundColor = 'transparent';
-            
             
         }
     };
@@ -290,6 +294,8 @@ document.addEventListener("DOMContentLoaded", function () {
         [elements.messageInput, elements.nameInput, elements.emailInput].forEach(el => el.value = ``)
 
     }
+
+    }();
 
 });
 

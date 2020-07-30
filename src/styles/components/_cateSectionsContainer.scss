@@ -55,14 +55,16 @@
                 transform: translate(-50%, -50%);
 
                 .centered__h1 {
+                    
                     font-size: 3rem;
                     text-transform: uppercase;
                     font-weight: 400;
                     color: $white;
-                    background-color: lightgrey;
+                    
                 }
 
                 .centered__hr {
+
                     border: 0.1rem solid $white;
                     
                 }                
@@ -70,7 +72,9 @@
 
             &:hover {
                 .section__img {
+                    
                     filter: none;
+                    
                 }
             }
         }
