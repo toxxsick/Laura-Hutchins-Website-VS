@@ -23,6 +23,8 @@ export const elements = {
     rightArrow: document.querySelector('.fa-arrow-right'),
     upArrow: document.querySelector('.fa-arrow-up'),
     menuGrpI: document.querySelectorAll('.menuGrp__i'),
+    introSectionWrapper: document.querySelector('.introSection--wrapper'),
+    introSectionBg: document.querySelector('.introSection--background'),
 
 };
 

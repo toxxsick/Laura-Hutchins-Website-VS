@@ -29,27 +29,32 @@ export const view = function() {
 
     function modalDisplay(arg) {
 
-        if(arg === true) {
+        if(arg === 'block') {
 
             elements.modal.style.display = 'block';
+            
 
         } else {
 
             elements.modal.style.display = 'none';
 
-        }
+        } 
 
     }
 
     
-
     return {
+
         bgChange:bgChange,
         modalDisplay:modalDisplay
-        
+            
     }
 
+    
+
 }();
+
+
   
 
 

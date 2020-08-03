@@ -2,24 +2,29 @@
 //                                         INTRO SECTION                                         //
 //-----------------------------------------------------------------------------------------------//
 .introSection {
+    height: 100vh;
+    background-color: $lightBlue;
     
     .introSection--background {
         padding-top: 5rem;
+        height: 100vh;
+        background: linear-gradient(rgba(125, 166, 187, 0.9), rgba(0, 0, 0, 0.9)), url("/Img/logo.png");
         
-        height: 70rem;
-        background-image: url("/Img/logo.png");
-        background-color: $blue;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
         
+        
         .introSection--wrapper {
+
+            
             display: inline-block;
             position: relative;
-            top: 0rem;
+            top: 12rem;
             color: $white;
+            
 
             .wrapper__h1 {
                 font-size: 4rem;
@@ -41,6 +46,8 @@
                 }
             }
 
+            
+
             .wrapper--button {
                 padding: 1rem;
                 background: transparent;
@@ -49,16 +56,13 @@
                 font-weight: 600;
                 transition: color 1s, border 1s, background 1s;
                 position: relative;
-                top: 20rem;
-
-                
 
                 @media only screen and (max-width: 992px) {
                     top: 15rem;
                 }
 
                 &:hover {
-                    color: $pink;
+                    color: $blue;
                     background: $white;
                     border: 0.2rem solid $white;
                     transition: color 1s, border 1s, background 1s;

@@ -17,7 +17,8 @@
                 width: 100%;
                 position: relative;
                 @include categoryImgFilter();
-                transition: filter 1s;
+                transition: filter 0.5s;
+                
                 cursor: pointer;
                 
 

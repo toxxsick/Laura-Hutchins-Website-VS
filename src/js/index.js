@@ -10,14 +10,10 @@ import {view} from './views/view';
 //waits for document to be ready before allowing js
 document.addEventListener("DOMContentLoaded", function () {
 
-    
-
-
      const controller = function() {
 
         let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
         let shown = false;
-
         
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
@@ -36,17 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
     
     //-----------------------------navigation bar--------------------------//
     //on click makes modal css block
-    elements.menuGrpBtnGrp.onclick = () => view.modalDisplay(true); 
+    elements.menuGrpBtnGrp.onclick = () => view.modalDisplay('block'); 
     
     //on clicking the span button changes modal css to none;
-    elements.closeBtn.onclick = () => view.modalDisplay(false);
+    elements.closeBtn.onclick = () => view.modalDisplay('none');
 
     //when clicking anywhere outside the modal, changes the model css to none;
     window.onclick = (event) => {
 
         if(event.target === elements.modal) {
 
-            view.modalDisplay(false);
+            view.modalDisplay('none');
 
         }
 
@@ -297,7 +293,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    //----------------------------JQUERY ANIMATIONS------------------------//
+    
+    $(elements.introSectionWrapper).hide();
+    $(elements.navbar).hide();
+    $(elements.introSectionBg).hide();
+
+    $(elements.introSectionBg).fadeIn(1000);
+    $(elements.introSectionWrapper).delay(1000).fadeIn(1000);
+    $(elements.introSectionWrapper).animate({
+        top: "13rem"
+
+    }, 100);
+    $(elements.navbar).delay(1500).fadeIn(1000);
+    
+    
+
+    
+
+    
+    
+
+
     }();
+
+
+    
 
 });
 

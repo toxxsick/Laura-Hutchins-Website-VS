@@ -17,15 +17,7 @@ categoryThree size at sma is slightly to small, needs increasing >
 contact section at sm, to much empty space at top.  >
 contact section Clear btn needs to be adjusted to middle >
 
-
-TO DO: 
-
-JS: category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
-finalise layouts for all sections, finalise layout for responsive layout.
-
-JS: move code from controller to view.js for functions, methods, variables which adjust html DOM
-
-///////laura's message/////////////////
+///////laura's message///////////////// >
 
 "Laura Hutchins is a freelance digital illustrator from the United Kingdom."
 
@@ -41,4 +33,17 @@ You can stay up to date with whatever she’s become obsessed with lately by sea
 
 category titles: Illustration, graphic design, tattoo, photography, designed with products in mind (or merch), old work
 
-///////Laura's message/////////////////
+///////Laura's message///////////////// >
+
+introSection - bg - needs to be darker > 
+
+
+TO DO: 
+
+JS: category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
+finalise layouts for all sections, finalise layout for responsive layout.
+
+JS: move code from controller to view.js for functions, methods, variables which adjust html DOM
+
+
+animation: instro section, words appear and slide in slightly, logo appears with background 
