@@ -17,7 +17,7 @@ import {elements} from './base'
 export const view = function() {
 
     function bgChange(arg) {
-        
+
         if(arg === true) {
             //alert(`argument was true! ${arg}`)
             elements.navbar.style.backgroundColor = '#242943';
@@ -32,30 +32,34 @@ export const view = function() {
         if(arg === 'block') {
 
             elements.modal.style.display = 'block';
-            
+
 
         } else {
 
             elements.modal.style.display = 'none';
 
-        } 
+        }
 
     }
 
+   
     
+
+
     return {
 
         bgChange:bgChange,
-        modalDisplay:modalDisplay
-            
+        modalDisplay:modalDisplay,
+
+
     }
 
-    
+
 
 }();
 
 
-  
+
 
 
 

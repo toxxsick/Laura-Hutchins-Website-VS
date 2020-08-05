@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
 
-        if (document.documentElement.scrollTop >= 1075) {
+        if (document.documentElement.scrollTop >= 870) {
 
             view.bgChange(true);
             checkShown()
@@ -295,31 +295,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //----------------------------JQUERY ANIMATIONS------------------------//
     
-    $(elements.introSectionWrapper).hide();
+    /////////////////////////Introsection
+    
     $(elements.navbar).hide();
     $(elements.introSectionBg).hide();
-
     $(elements.introSectionBg).fadeIn(1000);
-    $(elements.introSectionWrapper).delay(1000).fadeIn(1000);
-    $(elements.introSectionWrapper).animate({
-        top: "13rem"
+    
+    
 
-    }, 100);
+    $(elements.introSectionWrapper).delay(1000).animate({
+        opacity: 1,
+        top: '13rem'
+    }, 500);
+    
+
     $(elements.navbar).delay(1500).fadeIn(1000);
-    
-    
 
-    
+    ////////////////////////CategorySection
 
-    
-    
+    let sectionsIDImg = $(sectionsID).children('img');
+    let sectionsCentered = $(sectionsID).children('.section__centered');
 
+
+    $(document).on('scroll',() => {
+
+        let scrollPositionY = window.pageYOffset;
+        console.log(scrollPositionY);
+        if(scrollPositionY >= 400 && scrollPositionY <= 420) {
+        
+        [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
+        [sectionsCentered[0], sectionsCentered[1]].forEach(el => 
+
+            $(el).delay(1000).animate({ 
+                opacity: 1,
+                top: '50%'
+            }, 500)
+        
+        );
+        
+        } 
+        
+        if (scrollPositionY >= 950 && scrollPositionY <= 970) {
+
+        [sectionsIDImg[2], sectionsIDImg[3]].forEach(el => $(el).fadeIn(1000));
+        [sectionsCentered[2], sectionsCentered[3]].forEach(el => 
+
+            $(el).delay(1000).animate({ 
+                opacity: 1,
+                top: '50%'
+            }, 500)
+        
+        );
+                    
+        }
+         if (scrollPositionY >= 1500 && scrollPositionY <= 1520) {
+
+        [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
+        [sectionsCentered[4], sectionsCentered[5]].forEach(el => 
+
+            $(el).delay(1000).animate({ 
+                opacity: 1,
+                top: '50%'
+            }, 500)
+        
+        );
+                    
+        } 
+
+        
+        
+
+    });
 
     }();
-
-
-    
-
 });
 
 
