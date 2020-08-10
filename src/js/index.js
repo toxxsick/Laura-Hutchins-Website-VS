@@ -317,11 +317,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let sectionsCentered = $(sectionsID).children('.section__centered');
 
 
+    //////////////////////About Me Section
+
+    let contactIntroHeaderArr = nodeToArray(elements.contactIntroHeader);
+    contactIntroHeaderArr.push(elements.contactIntroBtnDiv);
+    
+    console.log(contactIntroHeaderArr);
+    
+
+    //////////////////////Contact Section 
+
+
     $(document).on('scroll',() => {
 
         let scrollPositionY = window.pageYOffset;
         console.log(scrollPositionY);
-        if(scrollPositionY >= 400 && scrollPositionY <= 420) {
+        if(scrollPositionY >= 225 && scrollPositionY <= 700) {
         
         [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
         [sectionsCentered[0], sectionsCentered[1]].forEach(el => 
@@ -335,7 +346,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         } 
         
-        if (scrollPositionY >= 950 && scrollPositionY <= 970) {
+        if (scrollPositionY >= 750 && scrollPositionY <= 1450) {
 
         [sectionsIDImg[2], sectionsIDImg[3]].forEach(el => $(el).fadeIn(1000));
         [sectionsCentered[2], sectionsCentered[3]].forEach(el => 
@@ -348,10 +359,10 @@ document.addEventListener("DOMContentLoaded", function () {
         );
                     
         }
-         if (scrollPositionY >= 1500 && scrollPositionY <= 1520) {
+         if (scrollPositionY >= 1500 && scrollPositionY <= 2000) {
 
-        [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
-        [sectionsCentered[4], sectionsCentered[5]].forEach(el => 
+            [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
+            [sectionsCentered[4], sectionsCentered[5]].forEach(el => 
 
             $(el).delay(1000).animate({ 
                 opacity: 1,
@@ -359,10 +370,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 500)
         
         );
-                    
         } 
 
         
+        if  (scrollPositionY >= 2000 && scrollPositionY <= 3000) {
+            let startN = 500;
+            let nextN = startN;
+            let i;
+
+            for(i = 0; i < contactIntroHeaderArr.length; i++) {
+                
+                $(contactIntroHeaderArr[i]).delay(startN += nextN).animate({ opacity: 1}, 500);
+            }
+
+            
+            
+        };
+
         
 
     });

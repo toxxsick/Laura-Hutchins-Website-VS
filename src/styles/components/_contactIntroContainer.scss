@@ -7,6 +7,7 @@
 
     .contactIntroContainer__contactIntro {
 
+        
         margin-top: 3rem;
         margin-bottom: 3rem;
         //background-color: $blue;
@@ -17,29 +18,25 @@
              
          }
 
-         
         
         
         
-        .contactIntro__header--color {
+        
+        .contactIntro__header {
+            opacity: 0;
             color: $white;
-        }
-
-        .contactIntro_header--centered {
             text-align: center;
-        }
-
-        .contactIntro__hr {
-            border: 0.1rem solid $white;
-            width: 100%;
-
-        }
-
-        .contactIntro__header-style {
             width: 100%;
             text-align: center;
+            
+            &:first-child {
+                margin-bottom: 3rem;
+                padding-bottom: 1rem;
+                border-bottom: 0.5rem solid $white;
+        
+            }
+            
         }
-
 
 
         .contactIntro__BtnDiv {
@@ -51,6 +48,8 @@
             transition: border 1s;
             color: $white;
             text-align: center;
+            opacity: 0;
+            
             cursor: pointer;
             .BtnDiv__a {
                 text-decoration: none;

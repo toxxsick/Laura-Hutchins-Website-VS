@@ -25,6 +25,9 @@ export const elements = {
     menuGrpI: document.querySelectorAll('.menuGrp__i'),
     introSectionWrapper: document.querySelector('.introSection--wrapper'),
     introSectionBg: document.querySelector('.introSection--background'),
+    contactIntroHeader: document.querySelectorAll('.contactIntro__header'),
+    contactIntroBtnDiv: document.querySelector('.contactIntro__BtnDiv'),
+
 
 };
 
