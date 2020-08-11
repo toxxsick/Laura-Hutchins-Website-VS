@@ -2,7 +2,8 @@
 //                                         mixins                                                //
 //-----------------------------------------------------------------------------------------------//
 @mixin categoryImgFilter() {
-    filter: brightness(40%) sepia(100%) hue-rotate(180deg) saturate(300%) contrast(0.45);
+    //filter: brightness(40%) sepia(100%) hue-rotate(180deg) saturate(300%) contrast(0.45);
+    filter: brightness(50%) sepia(100%) hue-rotate(170deg) saturate(250%) contrast(0.6);
 }
 
 @mixin widthHeight($width, $height) {

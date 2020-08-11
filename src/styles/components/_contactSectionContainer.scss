@@ -17,9 +17,11 @@
         border-top: 1px solid rgba(212, 212, 255, 0.1);
         border-bottom: 1px solid rgba(212, 212, 255, 0.1);
         background-color: $darkBlue;
+        opacity: 0;
+        
         
         .leftContactSection__name {
-
+            
             @include marginLeftAndRight(6rem);
 
             color: $white;
@@ -89,12 +91,6 @@
 
             margin-bottom: 3rem;
 
-            
-
-            
-            
-
-
             .message__h2 {
                 @extend .name__h2;
             }
@@ -151,23 +147,20 @@
     //-----------------------------------------------------------------------------------------------//
     //                                         rightContact section                                  //
     //-----------------------------------------------------------------------------------------------//
-    .rightContactSection {
+    .contactSectionContainer__rightContactSection {
         
         padding: 0rem;
         background-color: $darkBlue;
         border-left: 1px solid rgba(212, 212, 255, 0.1);
         border-top: 1px solid rgba(212, 212, 255, 0.1);
+        opacity: 0;
         
 
-
-
-
-
         .rightContactSection__email {
-
+            
+            
             margin-top: 5rem;
             padding-bottom: 5rem;;
-            
             padding-left: 4rem;
             color: $white;
             display: inline-block;

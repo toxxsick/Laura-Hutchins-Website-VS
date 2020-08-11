@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let contactIntroHeaderArr = nodeToArray(elements.contactIntroHeader);
     contactIntroHeaderArr.push(elements.contactIntroBtnDiv);
     
-    console.log(contactIntroHeaderArr);
+    
     
 
     //////////////////////Contact Section 
@@ -341,8 +341,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 opacity: 1,
                 top: '50%'
             }, 500)
+
+            
         
         );
+
+        if(scrollPositionY >= 1000) {
+            $(el).animate({
+                //filter: brightness(60%), sepia(100%), hue-rotate(170deg) saturate(250%) contrast(0.7);
+            })
+        }
         
         } 
         
@@ -382,14 +390,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 $(contactIntroHeaderArr[i]).delay(startN += nextN).animate({ opacity: 1}, 500);
             }
-
-            
-            
         };
 
-        
+        if(scrollPositionY >= 3000 && scrollPositionY <= 3500) {
+
+            [$(elements.leftContactSection), $(elements.rightContactSection)].forEach(el => el.animate({opacity: 1}, 500));
+
+        }
+
+        if(scrollPositionY >= 3600) {
+            $(elements.footerfootContainer).animate({
+                opacity: 1 
+            }, 500);
+        }
+    
 
     });
+    
+    
 
     }();
 });

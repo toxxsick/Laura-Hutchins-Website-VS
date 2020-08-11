@@ -8,6 +8,7 @@
     .footer__footContainer {
 
         text-align: center;
+        opacity: 0;
 
 
         .footcontainer__img {
@@ -31,8 +32,11 @@
         //-----------------------------------------------------------------------------------------------//
         //                                         credits section                                       //
         //-----------------------------------------------------------------------------------------------//
+        
+        
         .footContainer__creditContainer {
             margin-top: 1rem;
+            
 
             .creditContainer__p {
                 font-size: 1.1rem;
@@ -46,6 +50,7 @@
 
 
                 .creditContainer__a {
+                    
                     color: $lighterGrey;
                     border-bottom: 0.1rem dotted;
                     transition: color 1s, border 1s;

@@ -27,6 +27,9 @@ export const elements = {
     introSectionBg: document.querySelector('.introSection--background'),
     contactIntroHeader: document.querySelectorAll('.contactIntro__header'),
     contactIntroBtnDiv: document.querySelector('.contactIntro__BtnDiv'),
+    leftContactSection: document.querySelector('.contactSectionContainer__leftContactSection'), //leftContactSection__name
+    rightContactSection: document.querySelector('.contactSectionContainer__rightContactSection'),//rightContactSection__email
+    footerfootContainer: document.querySelector('.footer__footContainer'),
 
 
 };
