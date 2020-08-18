@@ -327,11 +327,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //////////////////////Contact Section 
 
-
     $(document).on('scroll',() => {
 
         let scrollPositionY = window.pageYOffset;
-        console.log(scrollPositionY);
+        //console.log(scrollPositionY);
         if(scrollPositionY >= 225 && scrollPositionY <= 700) {
         
         [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
@@ -346,12 +345,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         );
 
-        if(scrollPositionY >= 1000) {
-            $(el).animate({
-                //filter: brightness(60%), sepia(100%), hue-rotate(170deg) saturate(250%) contrast(0.7);
-            })
-        }
-        
         } 
         
         if (scrollPositionY >= 750 && scrollPositionY <= 1450) {
@@ -381,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
 
         
-        if  (scrollPositionY >= 2000 && scrollPositionY <= 3000) {
+        if  (scrollPositionY >= 1800 && scrollPositionY <= 3000) {
             let startN = 500;
             let nextN = startN;
             let i;
@@ -398,14 +391,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        if(scrollPositionY >= 3600) {
+        if(scrollPositionY >= 3575) {
             $(elements.footerfootContainer).animate({
                 opacity: 1 
             }, 500);
         }
-    
 
     });
+
+    
     
     
 

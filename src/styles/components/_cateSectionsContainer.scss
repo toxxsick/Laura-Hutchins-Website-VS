@@ -2,6 +2,7 @@
 //                                         Category Sections                                     //
 //-----------------------------------------------------------------------------------------------//
 .container-fluid {
+    
 
     .row {
         background-color: $blue;
@@ -19,7 +20,8 @@
                 width: 100%;
                 position: relative;
                 @include categoryImgFilter();
-                transition: filter 0.5s;
+                transition: filter 0.5s, width 1s;
+
                 
                 cursor: pointer;
                 
@@ -42,11 +44,7 @@
                 top: -35rem;
             }
 
-            .section__img--positionTwo {
-                @extend .section__img;
-                top: -20rem;
-
-            }
+            
 
             
 
@@ -57,6 +55,8 @@
                 top: 45%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                transition: transform 1s;
+                
 
                 .centered__h1 {
                     
@@ -64,23 +64,49 @@
                     text-transform: uppercase;
                     font-weight: 400;
                     color: $white;
-                    
+                    padding: 1rem;
+                    opacity: 1;
+                    transition: opacity 1s;
+            
                 }
 
-                .centered__hr {
-
-                    
-                    border: 0.1rem solid $white;
-                    
-                }                
+                        
             }
 
             &:hover {
-                .section__img {
+
+                
+
+                .section__centered {
+
+                    transform: translate(-50%, -100%);
+                    transition: transform 1s;
                     
-                    filter: none;
+                    .centered__h1 { 
+
+                        opacity: 0;
+                        transition: opacity 1s;
+                        
+                    }
                     
                 }
+
+                .section__img {
+                    
+                    width: 105%;
+                    transition: width 1s, filter 1s;
+                    filter: none;
+
+
+                    &--largerSize {
+                        width: 118%;
+                        height: auto;
+                    }
+
+                    
+                }
+
+
             }
         }
     }
