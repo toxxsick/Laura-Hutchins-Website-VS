@@ -2,9 +2,10 @@
 //                                         Category Sections                                     //
 //-----------------------------------------------------------------------------------------------//
 .container-fluid {
-    
 
     .row {
+        
+        
         background-color: $blue;
 
         .sectionsContainer__section {
@@ -75,7 +76,11 @@
 
             &:hover {
 
-                
+                .section__img {
+                    
+                    filter: none;
+
+                }
 
                 .section__centered {
 
@@ -90,22 +95,6 @@
                     }
                     
                 }
-
-                .section__img {
-                    
-                    width: 105%;
-                    transition: width 1s, filter 1s;
-                    filter: none;
-
-
-                    &--largerSize {
-                        width: 118%;
-                        height: auto;
-                    }
-
-                    
-                }
-
 
             }
         }

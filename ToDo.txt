@@ -17,7 +17,7 @@ categoryThree size at sma is slightly to small, needs increasing >
 contact section at sm, to much empty space at top.  >
 contact section Clear btn needs to be adjusted to middle >
 
-///////laura's message///////////////// >
+///////laura's message///////////////// add to about section >
 
 "Laura Hutchins is a freelance digital illustrator from the United Kingdom."
 
@@ -41,9 +41,18 @@ introSection - bg - needs to be darker >
 TO DO: 
 
 JS: category section: clicked image shrinks by 5% and fades, rest of the cate images fades, bigger image appears and enlarges. 
-finalise layouts for all sections, finalise layout for responsive layout.
+finalise layouts for all sections, finalise layout for responsive layout. >
 
-JS: move code from controller to view.js for functions, methods, variables which adjust html DOM
+JS: move code from controller to view.js for functions, methods, variables which adjust html DOM > 
 
 
-animation: instro section, words appear and slide in slightly, logo appears with background 
+animation: instro section, words appear and slide in slightly, logo appears with background > 
+
+gallery section:
+
+when category img is clicked: 
+    show gallery section for that category >
+    add in images for that template gallery layout
+    add javascript to change main image to clicked one in layout
+    up arrow hides gallery section >
+    removes images in gallery 

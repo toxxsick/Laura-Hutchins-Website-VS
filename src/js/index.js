@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
         let shown = false;
         
+
+        
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
 
@@ -79,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let nodeList = elements.menuGrpI
         let arrayList = Array.from(nodeList)
-
         arrayList.forEach(el => el.style.display = 'inline');
         
     }
@@ -138,16 +139,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if(target.closest('#sectionOneDiv')) {
 
                 sectionsID[0].dataset.clicked = 'true';
+                displayGalleryImages(0);
                
 
             } else if (target.closest('#sectionTwoDiv')) {
 
                 sectionsID[1].dataset.clicked = 'true';
+                displayGalleryImages(1);
                 
                 
             } else if (target.closest('#sectionThreeDiv')) {
 
                 sectionsID[2].dataset.clicked = 'true';
+                displayGalleryImages(2);
                 
             } else if (target.closest('#sectionFourDiv')) {
 
@@ -166,7 +170,9 @@ document.addEventListener("DOMContentLoaded", function () {
             checkDataset();
             toggleShown(true)
             displayCtrlBtns();
-            toggleCateTitles(true); 
+            toggleCateTitles(true);
+            displayGalleryLayout(true);
+             
             
         }
 
@@ -232,10 +238,13 @@ document.addEventListener("DOMContentLoaded", function () {
         turnOffDataSet();
 
         //displaySize back to normal layout to the one which was true
-        defaultSize()
+        
+        defaultSize() 
         toggleShown(false);
         checkShown();
-        toggleCateTitles(false); 
+        toggleCateTitles(false);
+        displayGalleryLayout(false); 
+        removeGalleryImages();  
         
     }
 
@@ -252,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
         el.getElementsByTagName('img')[0].style.filter = 'none';
         el.getElementsByTagName('img')[0].style.width = '50%';
         el.scrollIntoView();
-        //disable title section of category images
+        
     }
 
     function defaultSize() {
@@ -285,6 +294,86 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    function displayGalleryLayout(boolean) {
+
+        if (boolean === true) {
+            elements.clickedSectionsContainer.style.display = 'block';
+        } else {
+            elements.clickedSectionsContainer.style.display = 'none';
+        }
+    }
+
+    function displayGalleryImages(num) {
+        
+        //alert(num)
+        if (num === 0) {
+
+            
+
+            const illustrationArray = ['Cyberpunk', 'JJK', 'Nikola__Romeo_OSRS', 'Ninja', 'Ross_Draws'];
+            
+            const galleryDiv = elements.galleryDiv
+
+            console.log(galleryDiv)
+
+            illustrationArray.forEach(el => {
+                
+
+                const divWithImg = `
+                                    <div class="galleryDiv__imgDiv">
+                                        <img src="Img/Illustration/${el}.png" class="galleryDiv__imgDiv__img"> 
+                                    </div>
+                                    `
+
+                galleryDiv.insertAdjacentHTML('afterbegin', divWithImg);
+
+            })
+
+        } else if (num === 1) {
+
+            alert(`this is 1`)
+
+            const photostudiesArray = ['GaryVaynerchuk', 'GinaTorres', 'MeghanMarkle', 'PatrickJAdams', 'SarahRafferty']
+
+            const galleryDiv = elements.galleryDiv
+
+            console.log(galleryDiv)
+
+            photostudiesArray.forEach(el => {
+                
+
+                const divWithImg = `
+                                    <div class="galleryDiv__imgDiv">
+                                        <img src="Img/Photostudies/${el}.png" class="galleryDiv__imgDiv__img"> 
+                                    </div>
+                                    `
+
+                galleryDiv.insertAdjacentHTML('afterbegin', divWithImg);
+
+            })
+
+        } else {
+
+            alert(`nothing!`);
+
+
+        }
+
+    } 
+
+    function removeGalleryImages() {
+
+        let galleryDiv = elements.galleryDiv
+        let galleryChildElementTotal = galleryDiv.childElementCount
+        
+        for (let i = 0; i < galleryChildElementTotal; i++) {
+            galleryDiv.removeChild(galleryDiv.lastElementChild);
+        }
+        
+    }
+    
+    
+
 
     //---------------------------------------------contact section clear button-----------------------------//
     elements.clearBTN.onclick = () => {
@@ -315,6 +404,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let sectionsIDImg = $(sectionsID).children('img');
     let sectionsCentered = $(sectionsID).children('.section__centered');
+
+    
 
 
     //////////////////////About Me Section

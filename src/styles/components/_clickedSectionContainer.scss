@@ -2,7 +2,31 @@
 
 .clickedSectionsContainer {
     
-    height: 20rem;
+    display: none;
     
-    background-color: blue;
+    .clickedSectionsContainer__galleryDiv {
+        
+        
+        width: 100%;
+        
+        
+        background-color: $blue; 
+        
+        .galleryDiv__imgDiv {
+            
+            max-width: 19.8%;
+            background-color: $white;
+            display: inline-block;
+
+            .galleryDiv__imgDiv__img {
+
+                width: 100%;
+             
+                border: white solid 1rem;
+
+            }
+
+        }
+
+    }
 }
