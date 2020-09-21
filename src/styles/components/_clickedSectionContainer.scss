@@ -22,8 +22,16 @@
 
                 width: 100%;
              
-                border: white solid 1rem;
+                border: $white solid 1rem;
+                transition: border 1s;
+                
 
+            }
+
+            :hover {
+                border: $aqua solid 1rem;
+                transition: border 1s;
+                cursor: pointer;
             }
 
         }

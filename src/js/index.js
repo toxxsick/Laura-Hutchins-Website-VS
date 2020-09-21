@@ -13,7 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
      const controller = function() {
 
         let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
+        const illustrationArray = ['Cyberpunk', 'JJK', 'Nikola__Romeo_OSRS', 'Ninja', 'Ross_Draws'];
         let shown = false;
+        
+        
+
+        
+        
         
 
         
@@ -61,6 +67,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    function checkShown() {
+
+        if(shown === true) {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
+
+        } else {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
+
+        }
+
+    }
+
     function turnOffDataSet() {
 
         sectionsID.forEach(el => {
@@ -85,8 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
 
-    
-
     function toggleShown(arg) {
 
         if(arg === true) {
@@ -101,19 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    function checkShown() {
-
-        if(shown === true) {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
-
-        } else {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
-
-        }
-
-    }
+    
 
     function toggleCateTitles(arg) {
 
@@ -136,32 +142,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let target = event.target;
 
-            if(target.closest('#sectionOneDiv')) {
+
+            if(target.closest('#sectionOneDiv') && shown == false) {
 
                 sectionsID[0].dataset.clicked = 'true';
                 displayGalleryImages(0);
+                
+
+               
                
 
-            } else if (target.closest('#sectionTwoDiv')) {
+            } else if (target.closest('#sectionTwoDiv') && shown == false) {
 
                 sectionsID[1].dataset.clicked = 'true';
                 displayGalleryImages(1);
                 
                 
-            } else if (target.closest('#sectionThreeDiv')) {
+            } else if (target.closest('#sectionThreeDiv') && shown == false) {
 
                 sectionsID[2].dataset.clicked = 'true';
                 displayGalleryImages(2);
                 
-            } else if (target.closest('#sectionFourDiv')) {
+            } else if (target.closest('#sectionFourDiv') && shown == false) {
 
                 sectionsID[3].dataset.clicked = 'true';
                 
-            } else if (target.closest('#sectionFiveDiv')) {
+            } else if (target.closest('#sectionFiveDiv') && shown == false) {
 
                 sectionsID[4].dataset.clicked = 'true';
                 
-            } else if (target.closest('#sectionSixDiv')) {
+            } else if (target.closest('#sectionSixDiv') && shown == false) {
 
                 sectionsID[5].dataset.clicked = 'true';
 
@@ -178,61 +188,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
         
-    elements.leftArrow.onclick = () => {
+    // elements.leftArrow.onclick = () => {
 
-        let clickedOne;
-        //find current image with clicked to be true
-        sectionsID.forEach((el, index) => { 
+    //     let clickedOne;
+    //     //find current image with clicked to be true
+    //     sectionsID.forEach((el, index) => { 
             
-             if(el.getAttribute('data-clicked') === 'true') {
+    //          if(el.getAttribute('data-clicked') === 'true') {
                  
-                clickedOne = index;
+    //             clickedOne = index;
         
-             } 
+    //          } 
 
-        });
+    //     });
 
-        //check if clickedOne is at 0 if it is then go to 6
-        if(clickedOne === 0) {
-            clickedOne = sectionsID.length;
-        }
+    //     //check if clickedOne is at 0 if it is then go to 6
+    //     if(clickedOne === 0) {
+    //         clickedOne = sectionsID.length;
+    //     }
 
-        turnOffDataSet();
-        turnOnDataSet(clickedOne - 1);
+    //     turnOffDataSet();
+    //     turnOnDataSet(clickedOne - 1);
         
-    }
+    // }
 
-    elements.rightArrow.onclick = () => {
+    // elements.rightArrow.onclick = () => {
 
-        let clickedOne;
-        //find current image with clicked to be true
-        sectionsID.forEach((el, index) => { 
+    //     let clickedOne;
+    //     //find current image with clicked to be true
+    //     sectionsID.forEach((el, index) => { 
             
-             if(el.getAttribute('data-clicked') === 'true') {
+    //          if(el.getAttribute('data-clicked') === 'true') {
 
-                clickedOne = index;
+    //             clickedOne = index;
             
-             };
+    //          };
 
-        });
+    //     });
 
-        //check if clickedOne is at position 5 if it is then go to 0
-        if(clickedOne === sectionsID.length - 1) {
+        
 
-            clickedOne = 0;
+    //     //check if clickedOne is at position 5 if it is then go to 0
+    //     if(clickedOne === sectionsID.length - 1) {
+
+    //         clickedOne = 0;
             
-        } else {
+    //     } else {
 
-            clickedOne++;
+    //         clickedOne++;
 
-        }
+    //     }
          
-        turnOffDataSet();
-        turnOnDataSet(clickedOne);
-        
-    }
+    //     turnOffDataSet();
+    //     turnOnDataSet(clickedOne);
+    // }
+
+    
+
 
     elements.upArrow.onclick = () => {
+        
 
         //make category sections as false
         turnOffDataSet();
@@ -260,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         el.style.height = '100%';
         el.getElementsByTagName('img')[0].style.filter = 'none';
         el.getElementsByTagName('img')[0].style.width = '50%';
+        el.getElementsByTagName('img')[0].style.cursor = 'default'
         el.scrollIntoView();
         
     }
@@ -268,10 +284,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         sectionsID.forEach((el,index) => {
 
+
             el.style.display = 'block'
             el.style.height = '35rem'
+            
             el.getElementsByTagName('img')[0].style.width = '100%';
             el.getElementsByTagName('img')[0].style.filter = '';
+            el.getElementsByTagName('img')[0].style.cursor = 'pointer';
             
             if(index === 0 || index === 3 || index === 4) {
                 
@@ -308,13 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //alert(num)
         if (num === 0) {
 
-            
-
-            const illustrationArray = ['Cyberpunk', 'JJK', 'Nikola__Romeo_OSRS', 'Ninja', 'Ross_Draws'];
-            
             const galleryDiv = elements.galleryDiv
-
-            console.log(galleryDiv)
 
             illustrationArray.forEach(el => {
                 
@@ -329,6 +342,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             })
 
+            
+
+            
+            galleryDiv.children.forEach(el => {
+                el.addEventListener('click', test)
+            })
+
+            function test() {
+                alert(`test!`);
+            }
+
+            
+
         } else if (num === 1) {
 
             alert(`this is 1`)
@@ -337,7 +363,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const galleryDiv = elements.galleryDiv
 
-            console.log(galleryDiv)
+            
 
             photostudiesArray.forEach(el => {
                 
@@ -352,6 +378,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             })
 
+            
+
+
         } else {
 
             alert(`nothing!`);
@@ -360,6 +389,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     } 
+
+
+    
 
     function removeGalleryImages() {
 
@@ -490,9 +522,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    
-    
-    
 
     }();
 });
