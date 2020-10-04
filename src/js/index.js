@@ -13,16 +13,33 @@ document.addEventListener("DOMContentLoaded", function () {
      const controller = function() {
 
         let sectionsID = [elements.sectionOneID, elements.sectionTwoID, elements.sectionThreeID, elements.sectionFourID, elements.sectionFiveID, elements.sectionSixID]
-        const illustrationArray = ['Cyberpunk', 'JJK', 'Nikola__Romeo_OSRS', 'Ninja', 'Ross_Draws'];
+        
+        const illustrationArray = ['Cyberpunk', 'JJK', 'NikolaRomeoOSRS', 'Ninja', 'RossDraws', 'AudreyanaMichelle'];
+        const photostudiesArray = ['GaryVaynerchuk', 'GinaTorres', 'MeghanMarkle', 'PatrickJAdams', 'SarahRafferty', 'SpaceDog'];
+        const merchArray = ['Cheetah', 'Lion', 'Tiger', 'Untitled_Artwork', 'tigerBisexualFlag'];
+        const oldWorkArray = ['BarackObama', 'GordonBrown', 'ConceptForChildrenBook', 'Retrofuturism', 'Retrofuturism2', 'SargoOSRS', 'Fetch'];
+        const photographyArray = [];
+        const tattooArray = ['BuzzWhite', 'cat', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'JapaneseMaskWhiteBg', 'LionKingwhitebg', 'rose1', 'rose2', 'rose3', 'StudioGhibliwhitebg', 'Woodywhitebg'];
+
         let shown = false;
         
         
 
-        
-        
-        
+        //-----------------------------miscellaneous--------------------------//
 
-        
+        function checkShown() {
+
+        if(shown === true) {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
+
+        } else {
+
+            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
+
+        }
+
+    }
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
 
@@ -37,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
         }
     };
+
+    
     
     //-----------------------------navigation bar--------------------------//
     //on click makes modal css block
@@ -56,353 +75,462 @@ document.addEventListener("DOMContentLoaded", function () {
 
     };
 
+
     //-----------------------------------------------category sections image clicked-------------------------//
 
-    //checks if dataset clickd is true: if true then display image
-    function checkDataset() {
-
-        sectionsID.forEach(el => {
-            el.dataset.clicked === 'true' ? changeSize(el) : displayNone(el)
-        });
-
-    }
-
-    function checkShown() {
-
-        if(shown === true) {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
-
-        } else {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
-
-        }
-
-    }
-
-    function turnOffDataSet() {
-
-        sectionsID.forEach(el => {
-             el.dataset.clicked = 'false';
-        });
-
-    }
-
-    function turnOnDataSet(id) {
-
-        sectionsID[id].dataset.clicked = 'true';
-        checkDataset();
-        changeSize(sectionsID[id]);
-
-    }
-
-    function displayCtrlBtns() {
-
-        let nodeList = elements.menuGrpI
-        let arrayList = Array.from(nodeList)
-        arrayList.forEach(el => el.style.display = 'inline');
-        
-    }
-
-    function toggleShown(arg) {
-
-        if(arg === true) {
-
-            shown = true;
-
-        } else {
-
-            shown = false;
-
-        }
-
-    }
-
-    
-
-    function toggleCateTitles(arg) {
-
-        if(arg === true) {
-
-            nodeToArray(elements.sectionCenteredGrp).forEach(el => el.style.display = 'none');
-
-        } else {
-
-            nodeToArray(elements.sectionCenteredGrp).forEach(el => el.style.display = 'block');
-
-        }
-
-    }
-
-    
     sectionsID.forEach(el => {
+        el.addEventListener('click', categoryClicked)
+    })
+    
+    function categoryClicked() {
 
-        el.onclick = () => {
+        let eventTarget = event.target;
 
-            let target = event.target;
-
-
-            if(target.closest('#sectionOneDiv') && shown == false) {
-
-                sectionsID[0].dataset.clicked = 'true';
-                displayGalleryImages(0);
-                
-
-               
-               
-
-            } else if (target.closest('#sectionTwoDiv') && shown == false) {
-
-                sectionsID[1].dataset.clicked = 'true';
-                displayGalleryImages(1);
-                
-                
-            } else if (target.closest('#sectionThreeDiv') && shown == false) {
-
-                sectionsID[2].dataset.clicked = 'true';
-                displayGalleryImages(2);
-                
-            } else if (target.closest('#sectionFourDiv') && shown == false) {
-
-                sectionsID[3].dataset.clicked = 'true';
-                
-            } else if (target.closest('#sectionFiveDiv') && shown == false) {
-
-                sectionsID[4].dataset.clicked = 'true';
-                
-            } else if (target.closest('#sectionSixDiv') && shown == false) {
-
-                sectionsID[5].dataset.clicked = 'true';
-
-            }
-
-            checkDataset();
-            toggleShown(true)
-            displayCtrlBtns();
-            toggleCateTitles(true);
-            displayGalleryLayout(true);
-             
+        if(eventTarget.closest('#sectionOneDiv')) {
             
+            //turn on data set for that div
+            turnOnDataSet(elements.sectionOneID)
+            
+
+        } 
+        if(eventTarget.closest('#sectionTwoDiv')) {
+            
+            turnOnDataSet(elements.sectionTwoID)
+
+        }
+        if(eventTarget.closest('#sectionThreeDiv')) {
+            
+            turnOnDataSet(elements.sectionThreeID)
+
+        } 
+        if(eventTarget.closest('#sectionFourDiv')) {
+            
+
+            turnOnDataSet(elements.sectionFourID)
+
+        }
+        if(eventTarget.closest('#sectionFiveDiv')) {
+            
+            turnOnDataSet(elements.sectionFiveID)
+
+        } 
+        if(eventTarget.closest('#sectionSixDiv')) {
+           
+            turnOnDataSet(elements.sectionSixID)
+
         }
 
-    })
-        
-    // elements.leftArrow.onclick = () => {
+        //function which checks data set and which one got turned on: turn off those which are not active
+        checkDataSet(sectionsID);  
 
-    //     let clickedOne;
-    //     //find current image with clicked to be true
-    //     sectionsID.forEach((el, index) => { 
-            
-    //          if(el.getAttribute('data-clicked') === 'true') {
-                 
-    //             clickedOne = index;
-        
-    //          } 
-
-    //     });
-
-    //     //check if clickedOne is at 0 if it is then go to 6
-    //     if(clickedOne === 0) {
-    //         clickedOne = sectionsID.length;
-    //     }
-
-    //     turnOffDataSet();
-    //     turnOnDataSet(clickedOne - 1);
-        
-    // }
-
-    // elements.rightArrow.onclick = () => {
-
-    //     let clickedOne;
-    //     //find current image with clicked to be true
-    //     sectionsID.forEach((el, index) => { 
-            
-    //          if(el.getAttribute('data-clicked') === 'true') {
-
-    //             clickedOne = index;
-            
-    //          };
-
-    //     });
-
-        
-
-    //     //check if clickedOne is at position 5 if it is then go to 0
-    //     if(clickedOne === sectionsID.length - 1) {
-
-    //         clickedOne = 0;
-            
-    //     } else {
-
-    //         clickedOne++;
-
-    //     }
-         
-    //     turnOffDataSet();
-    //     turnOnDataSet(clickedOne);
-    // }
-
-    
-
-
-    elements.upArrow.onclick = () => {
-        
-
-        //make category sections as false
-        turnOffDataSet();
-
-        //displaySize back to normal layout to the one which was true
-        
-        defaultSize() 
-        toggleShown(false);
-        checkShown();
-        toggleCateTitles(false);
-        displayGalleryLayout(false); 
-        removeGalleryImages();  
-        
+        //display starting image of that category
+        //display back button 
     }
 
     
 
-    //change div attributes to fit size of browser screen
-    function changeSize(el)  {
+    let turnOnDataSet = arg =>  {
         
-        el.style.display = 'block';
-        el.classList.remove('col-xl-5');
-        el.classList.add('col-xl-12');
+        arg.dataset.clicked = 'true';
         
-        el.style.height = '100%';
-        el.getElementsByTagName('img')[0].style.filter = 'none';
-        el.getElementsByTagName('img')[0].style.width = '50%';
-        el.getElementsByTagName('img')[0].style.cursor = 'default'
-        el.scrollIntoView();
-        
+    
     }
 
-    function defaultSize() {
+    
 
-        sectionsID.forEach((el,index) => {
+    let checkDataSet = arg => {
 
-
-            el.style.display = 'block'
-            el.style.height = '35rem'
+        arg.forEach((el,index, Array) => {
             
-            el.getElementsByTagName('img')[0].style.width = '100%';
-            el.getElementsByTagName('img')[0].style.filter = '';
-            el.getElementsByTagName('img')[0].style.cursor = 'pointer';
-            
-            if(index === 0 || index === 3 || index === 4) {
+            el.dataset.clicked == 'true' ? showClickedCategoryImg(el) : hideCategoryImg(Array)
+
+        })
+
+    }
+
+    let showClickedCategoryImg = el => {
+        
+    
+    //takes the element, sees what image it is, formats the name of the element src
+    let categoryName = formattedName(el)
+    
+
+    //function which compares name to one of the arrays so it can use the smaller images of the array for the small category
+    checkName(categoryName)
+
+    
+    }
+
+    let hideCategoryImg = (arg) => {
+
+        arg.forEach(el => el.style.display = 'none');
+
+    }
+    
+    let formattedName = (el) => {
+        let formattedel = el.querySelector('img').src.split('/');
+        let formattedAndSplicedel;
+        let formattedSplicedString;
+        let removedPNG;
+        let convertedString;
+
+        formattedel.forEach((el,index) => {
+
+            if(el.includes('.jpg') || el.includes('.png')) {
                 
-                sectionsID[index].classList.remove('col-xl-12');
-                sectionsID[index].classList.add('col-xl-5');
+                formattedAndSplicedel = formattedel.splice(index, 1);
 
+            } 
+
+        })
+
+        
+        
+        formattedSplicedString = formattedAndSplicedel.toString();
+        removedPNG = formattedSplicedString.split('.').splice(0, 1)
+        
+        convertedString = removedPNG.toString();
+
+        return convertedString;
+
+    }
+
+    
+
+    let checkName = (arg) => {
+
+        const testName = arg;
+        
+        let foldername; 
+
+        //find out which array the name belongs in
+
+        illustrationArray.forEach(el => {
+            if(el === testName) {
+                
+                foldername = 'illustration';
+
+                enlargeImg(foldername, el)
+                
+                thumbnailImg(illustrationArray, foldername)
+            
+            } 
+        })
+
+        photostudiesArray.forEach(el => {
+            if(el === testName) {
+                
+                foldername = 'photostudies';
+
+                enlargeImg(foldername, el)
+
+                thumbnailImg(photostudiesArray, foldername)
+                
+
+            } 
+        })
+
+        merchArray.forEach(el => {
+            if(el === testName) {
+                
+                foldername = 'Merch';
+
+                enlargeImg(foldername, el)
+
+                thumbnailImg(merchArray, foldername)
+                
+            } 
+        })
+
+        oldWorkArray.forEach(el => {
+            if(el === testName) {
+                
+                foldername = 'Oldwork';
+
+                enlargeImg(foldername, el)
+
+                thumbnailImg(oldWorkArray, foldername)
+                
+            } 
+        })
+
+        tattooArray.forEach(el => {
+            if(el === testName) {
+                
+                foldername = 'Tattoo';
+
+                enlargeImg(foldername, el)
+
+                thumbnailImg(tattooArray, foldername)
+                
+            } 
+        })
+        
+    }
+
+    let enlargeImg = (folder, arg) => {
+
+        const leftArrow = elements.leftArrow
+        let placeHolderName = `<img src="img/${folder}/${arg}.png" class="galleryDiv__enlargedImgDiv__img"></img>`
+
+        leftArrow.insertAdjacentHTML('afterend', placeHolderName)
+
+    }
+
+    let thumbnailImg = (array, foldername) => {
+        array.forEach(el => {
+
+            const galleryDiv = elements.galleryDiv;
+
+            let placeHolderName = `
+            
+                                <div class="galleryDiv__imgDiv col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+        
+                                <img src="Img/${foldername}/${el}.png" class="galleryDiv__imgDiv__img">
+
+                                </div>
+                                
+                                `
+
+        galleryDiv.insertAdjacentHTML('beforeend', placeHolderName)
+
+        })   
+    }
+
+    //---------------------------------Arrow Functionality-------------------------------//
+    elements.leftArrow.addEventListener('click', switchLeft);
+
+    function switchLeft() {
+
+
+        //find out what's being displayed
+        let src = currentlyDisplayed();
+        
+        //find out what array is being and which position it's in. 
+        let arrayItems = findArray(src);
+
+       
+        //make a function which takes a array and position argument and take away -1 from that array and displays it 
+        findPosition(arrayItems[0], arrayItems[1], 'backward');
+       
+
+        
+        
+        
+        
+        // go to position - 1 (if get to 0 go to the .length of the array)
+
+
+    }
+
+    let findPosition = (arrayName, arrayPosition, direction) => {
+
+        let arrPos = arrayPosition;
+        
+      
+        if(arrayName === 'illustrationArray') {
+
+            if(direction === 'backward') {
+
+                //takes away 1
+                arrPos - 1;
+                console.log(arrPos);
+
+                
+                 
+                if(arrayPosition === 0) {
+
+                    
+
+                } else {
+                    
+                    
+                    
+
+                }
+                
             } else {
 
-                sectionsID[index].classList.remove('col-xl-12');
-        
-            }
-
-        });
-        
-    }
-
-    function displayNone(el) {
-
-        el.style.display = 'none'; 
-
-    }
-
-    function displayGalleryLayout(boolean) {
-
-        if (boolean === true) {
-            elements.clickedSectionsContainer.style.display = 'block';
-        } else {
-            elements.clickedSectionsContainer.style.display = 'none';
-        }
-    }
-
-    function displayGalleryImages(num) {
-        
-        //alert(num)
-        if (num === 0) {
-
-            const galleryDiv = elements.galleryDiv
-
-            illustrationArray.forEach(el => {
                 
 
-                const divWithImg = `
-                                    <div class="galleryDiv__imgDiv">
-                                        <img src="Img/Illustration/${el}.png" class="galleryDiv__imgDiv__img"> 
-                                    </div>
-                                    `
-
-                galleryDiv.insertAdjacentHTML('afterbegin', divWithImg);
-
-            })
-
-            
-
-            
-            galleryDiv.children.forEach(el => {
-                el.addEventListener('click', test)
-            })
-
-            function test() {
-                alert(`test!`);
             }
-
             
-
-        } else if (num === 1) {
-
-            alert(`this is 1`)
-
-            const photostudiesArray = ['GaryVaynerchuk', 'GinaTorres', 'MeghanMarkle', 'PatrickJAdams', 'SarahRafferty']
-
-            const galleryDiv = elements.galleryDiv
-
-            
-
-            photostudiesArray.forEach(el => {
-                
-
-                const divWithImg = `
-                                    <div class="galleryDiv__imgDiv">
-                                        <img src="Img/Photostudies/${el}.png" class="galleryDiv__imgDiv__img"> 
-                                    </div>
-                                    `
-
-                galleryDiv.insertAdjacentHTML('afterbegin', divWithImg);
-
-            })
-
-            
-
-
-        } else {
-
-            alert(`nothing!`);
-
 
         }
 
-    } 
+        
+
+        // if(arrayNameholder === 'photostudiesArray') {
+
+        //     if(position === 'backward') {
+
+        //         console.log(`it was backward `)
+        //         console.log(photostudiesArray[arrayPositionholder - 1]);
+
+        //     } else {
+
+        //         console.log(`it was forward`)
+        //         console.log(photostudiesArray[arrayPositionholder + 1]);
+
+        //     }
+            
+        // }
+
+        // if(arrayNameholder === 'merchArray') {
+
+        //     if(position === 'backward') {
+
+        //         console.log(`it was backward `)
+        //         console.log(merchArray[arrayPositionholder - 1]);
+
+        //     } else {
+
+        //         console.log(`it was forward`)
+        //         console.log(merchArray[arrayPositionholder + 1]);
+
+        //     }
+            
+        // }
+
+        // if(arrayNameholder === 'oldWorkArray') {
+
+        //     if(position === 'backward') {
+
+        //         console.log(`it was backward `)
+        //         console.log(oldWorkArray[arrayPositionholder - 1]);
+
+        //     } else {
+
+        //         console.log(`it was forward`)
+        //         console.log(oldWorkArray[arrayPositionholder + 1]);
+
+        //     }
+            
+        // }
+
+        // if(arrayNameholder === 'tattooArray') {
+
+        //     if(position === 'backward') {
+
+        //         console.log(`it was backward `)
+        //         console.log(tattooArray[arrayPositionholder - 1]);
+
+        //     } else {
+
+        //         console.log(`it was forward`)
+        //         console.log(tattooArray[arrayPositionholder + 1]);
+
+        //     }
+            
+        // }
+    }
+
+    
+    
+    let currentlyDisplayed = () => {
+        
+        let src = elements.galleryDivEnlargedImgDiv
+        let formattedSrc = formattedName(src)
+        
+        return formattedSrc;
+
+    }
+
+    let findArray = (arg) => {
+        let arrayPosition;
+        let arrayTitle;
+        let PosAndTitleArray = [];
+
+        //use argument to for each array 
+        illustrationArray.forEach((el, index, array) => {
+            if(el === arg) {
+                
+                 arrayPosition = index;
+                 arrayTitle = 'illustrationArray'
+                 PosAndTitleArray.push(arrayTitle, arrayPosition);
+
+            } 
+        })
+
+        photostudiesArray.forEach((el, index, array) => {
+            if(el === arg) {
+                
+                console.log(`photostudies here 2 `)
+
+                 arrayPosition = index;
+                 arrayTitle = 'photostudiesArray'
+                 PosAndTitleArray.push(arrayTitle, arrayPosition);
+
+            } 
+        })
+
+        merchArray.forEach((el, index, array) => {
+            if(el === arg) {
+                
+                console.log(`merch here 3 `)
+
+                arrayPosition = index;
+                arrayTitle = 'merchArray'
+                PosAndTitleArray.push(arrayTitle, arrayPosition);
+                
+            } 
+        })
+
+        oldWorkArray.forEach((el, index, array) => {
+            if(el === arg) {
+                
+                console.log(`oldWork here 4 `)
+
+                arrayPosition = index;
+                arrayTitle = 'oldWork'
+                PosAndTitleArray.push(arrayTitle, arrayPosition);
+                
+            } 
+        })
+
+        tattooArray.forEach((el, index, array) => {
+            if(el === arg) {
+                
+                console.log(`tattoo here 5 `)
+
+                arrayPosition = index;
+                arrayTitle = 'tattoo'
+                PosAndTitleArray.push(arrayTitle, arrayPosition);
+                
+            } 
+        })
+
+        return PosAndTitleArray;
+
+    }
+    
+
+    
+    
+        
+    
+
+    
+
+    
 
 
     
 
-    function removeGalleryImages() {
+    
 
-        let galleryDiv = elements.galleryDiv
-        let galleryChildElementTotal = galleryDiv.childElementCount
-        
-        for (let i = 0; i < galleryChildElementTotal; i++) {
-            galleryDiv.removeChild(galleryDiv.lastElementChild);
-        }
-        
-    }
+    
+    
+
+    
+
+    
+
+    
+
+     
+
+    
     
     
 
@@ -434,8 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ////////////////////////CategorySection
 
-    let sectionsIDImg = $(sectionsID).children('img');
-    let sectionsCentered = $(sectionsID).children('.section__centered');
+    
 
     
 
@@ -456,44 +583,44 @@ document.addEventListener("DOMContentLoaded", function () {
         //console.log(scrollPositionY);
         if(scrollPositionY >= 225 && scrollPositionY <= 700) {
         
-        [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
-        [sectionsCentered[0], sectionsCentered[1]].forEach(el => 
+        // [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
+        // [sectionsCentered[0], sectionsCentered[1]].forEach(el => 
 
-            $(el).delay(1000).animate({ 
-                opacity: 1,
-                top: '50%'
-            }, 500)
+        //     $(el).delay(1000).animate({ 
+        //         opacity: 1,
+        //         top: '50%'
+        //     }, 500)
 
             
         
-        );
+        // );
 
         } 
         
         if (scrollPositionY >= 750 && scrollPositionY <= 1450) {
 
-        [sectionsIDImg[2], sectionsIDImg[3]].forEach(el => $(el).fadeIn(1000));
-        [sectionsCentered[2], sectionsCentered[3]].forEach(el => 
+        // [sectionsIDImg[2], sectionsIDImg[3]].forEach(el => $(el).fadeIn(1000));
+        // [sectionsCentered[2], sectionsCentered[3]].forEach(el => 
 
-            $(el).delay(1000).animate({ 
-                opacity: 1,
-                top: '50%'
-            }, 500)
+        //     $(el).delay(1000).animate({ 
+        //         opacity: 1,
+        //         top: '50%'
+        //     }, 500)
         
-        );
+        // );
                     
         }
          if (scrollPositionY >= 1500 && scrollPositionY <= 2000) {
 
-            [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
-            [sectionsCentered[4], sectionsCentered[5]].forEach(el => 
+            // [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
+        //     [sectionsCentered[4], sectionsCentered[5]].forEach(el => 
 
-            $(el).delay(1000).animate({ 
-                opacity: 1,
-                top: '50%'
-            }, 500)
+        //     $(el).delay(1000).animate({ 
+        //         opacity: 1,
+        //         top: '50%'
+        //     }, 500)
         
-        );
+        // );
         } 
 
         

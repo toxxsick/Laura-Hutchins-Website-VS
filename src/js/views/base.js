@@ -19,7 +19,10 @@ export const elements = {
     cateImgOne: document.getElementById('cateImgOne'),
     clickedSectionsContainer: document.querySelector('.clickedSectionsContainer'),
     galleryDiv: document.querySelector('.clickedSectionsContainer__galleryDiv'),
+    galleryDivEnlargedImgDiv: document.querySelector('.galleryDiv__enlargedImgDiv'),
     galleryDivImgDivImg: document.querySelector('.galleryDiv__imgDiv__img'),
+    galleryDivEnlargedImgDivImg: document.querySelector('.galleryDiv__enlargedImgDiv__img'),
+    
     
     sectionCentered: document.querySelector('.section__centered'),
     sectionCenteredGrp: document.querySelectorAll('.section__centered'),
@@ -27,8 +30,8 @@ export const elements = {
 
     navbar: document.querySelector('.wrapper__navbar'),
 
-    // leftArrow: document.querySelector('.fa-arrow-left'),
-    // rightArrow: document.querySelector('.fa-arrow-right'),
+    leftArrow: document.querySelector('.fa-arrow-left'),
+    rightArrow: document.querySelector('.fa-arrow-right'),
     upArrow: document.querySelector('.fa-arrow-up'),
     menuGrpI: document.querySelectorAll('.menuGrp__i'),
 

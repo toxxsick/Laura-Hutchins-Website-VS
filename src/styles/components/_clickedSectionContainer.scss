@@ -2,36 +2,67 @@
 
 .clickedSectionsContainer {
     
-    display: none;
+    //display: none;
     
     .clickedSectionsContainer__galleryDiv {
         
+        display: block;
+        //background-color: $blue; 
         
-        width: 100%;
-        
-        
-        background-color: $blue; 
-        
+
+        .galleryDiv__enlargedImgDiv {
+
+            margin-left: 18%;
+            margin-right: 18%;
+
+            .galleryDiv__enlargedImgDiv__i {
+                
+                font-size: 7vh;
+                color: $white;
+                cursor: pointer;
+                transition: color 1s;
+                display: inline;
+                
+                &:hover {
+
+                    color: $aqua;
+                    transition: color 1s;
+                    
+                }
+                
+            }
+            
+
+            .galleryDiv__enlargedImgDiv__img {
+
+                width: 90%;
+
+            }
+
+        }
+
         .galleryDiv__imgDiv {
             
-            max-width: 19.8%;
-            background-color: $white;
+            //max-width: 15%;
+            width: 100%;
+            
             display: inline-block;
 
             .galleryDiv__imgDiv__img {
 
+                
                 width: 100%;
-             
-                border: $white solid 1rem;
+                //border: $white solid 1rem;
                 transition: border 1s;
                 
-
             }
 
             :hover {
-                border: $aqua solid 1rem;
+
+                //border: $aqua solid 1rem;
                 transition: border 1s;
                 cursor: pointer;
+
             }
 
         }
