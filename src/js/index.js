@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const oldWorkArray = ['BarackObama', 'GordonBrown', 'ConceptForChildrenBook', 'Retrofuturism', 'Retrofuturism2', 'SargoOSRS', 'Fetch'];
         const photographyArray = [];
         const tattooArray = ['BuzzWhite', 'cat', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'JapaneseMaskWhiteBg', 'LionKingwhitebg', 'rose1', 'rose2', 'rose3', 'StudioGhibliwhitebg', 'Woodywhitebg'];
-
-        let shown = false;
+        let seen = false;
+        let indexPos;
+        
         
         
 
@@ -91,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             //turn on data set for that div
             turnOnDataSet(elements.sectionOneID)
             
-
         } 
         if(eventTarget.closest('#sectionTwoDiv')) {
             
@@ -123,8 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         //function which checks data set and which one got turned on: turn off those which are not active
         checkDataSet(sectionsID);  
 
-        //display starting image of that category
-        //display back button 
     }
 
     
@@ -135,8 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
     
     }
-
-    
 
     let checkDataSet = arg => {
 
@@ -150,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let showClickedCategoryImg = el => {
         
-    
     //takes the element, sees what image it is, formats the name of the element src
     let categoryName = formattedName(el)
     
@@ -184,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
 
-        
         
         formattedSplicedString = formattedAndSplicedel.toString();
         removedPNG = formattedSplicedString.split('.').splice(0, 1)
@@ -226,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 thumbnailImg(photostudiesArray, foldername)
                 
-
             } 
         })
 
@@ -300,6 +293,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //---------------------------------Arrow Functionality-------------------------------//
     elements.leftArrow.addEventListener('click', switchLeft);
 
+    
+
     function switchLeft() {
 
 
@@ -308,122 +303,84 @@ document.addEventListener("DOMContentLoaded", function () {
         
         //find out what array is being and which position it's in. 
         let arrayItems = findArray(src);
+        let arrayName = arrayItems[0];
+        let arrayPos = arrayItems[1]; // 3 
 
-       
-        //make a function which takes a array and position argument and take away -1 from that array and displays it 
-        findPosition(arrayItems[0], arrayItems[1], 'backward');
-       
+        if(seen === true) {
+            arrayPos = indexPos;
+        }
 
+        findPosition(arrayName, arrayPos, 'backward');
         
-        
-        
-        
-        // go to position - 1 (if get to 0 go to the .length of the array)
 
 
     }
 
+    
     let findPosition = (arrayName, arrayPosition, direction) => {
-
-        let arrPos = arrayPosition;
         
-      
         if(arrayName === 'illustrationArray') {
 
             if(direction === 'backward') {
 
-                //takes away 1
-                arrPos - 1;
-                console.log(arrPos);
-
+                let arrayPosMinusOne = minusOne(arrayPosition);
                 
-                 
-                if(arrayPosition === 0) {
+                console.log(illustrationArray[arrayPosMinusOne]);
 
-                    
+                indexPos = arrayPosMinusOne;
 
-                } else {
-                    
-                    
-                    
-
-                }
-                
             } else {
 
+                let arrayPosPlusOne = plusOne(arrayPosition);
                 
+                console.log(illustrationArray[arrayPosPlusOne]);
+                
+                indexPos = arrayPosPlusOne;
 
             }
+        }
+        
+    }
+    
+    let minusOne = (arg) => {
+
+        let arrayPos;
+
+
+        if(arg === 0) {
+
+            arrayPos = illustrationArray.length - 1;
             
+        } else {
+
+            arrayPos = arg - 1;
+        }
+
+        seen = true;
+        return arrayPos;
+
+    }
+
+    let plusOne = (arg) => {
+
+        let arrayPos;
+
+        if(arg === illustrationArray.length - 1) {
+
+            arrayPos = 0;
+
+        } else {
+
+            arrayPos = arg + 1;
 
         }
 
+        seen = true;
+        return arrayPos;
         
-
-        // if(arrayNameholder === 'photostudiesArray') {
-
-        //     if(position === 'backward') {
-
-        //         console.log(`it was backward `)
-        //         console.log(photostudiesArray[arrayPositionholder - 1]);
-
-        //     } else {
-
-        //         console.log(`it was forward`)
-        //         console.log(photostudiesArray[arrayPositionholder + 1]);
-
-        //     }
-            
-        // }
-
-        // if(arrayNameholder === 'merchArray') {
-
-        //     if(position === 'backward') {
-
-        //         console.log(`it was backward `)
-        //         console.log(merchArray[arrayPositionholder - 1]);
-
-        //     } else {
-
-        //         console.log(`it was forward`)
-        //         console.log(merchArray[arrayPositionholder + 1]);
-
-        //     }
-            
-        // }
-
-        // if(arrayNameholder === 'oldWorkArray') {
-
-        //     if(position === 'backward') {
-
-        //         console.log(`it was backward `)
-        //         console.log(oldWorkArray[arrayPositionholder - 1]);
-
-        //     } else {
-
-        //         console.log(`it was forward`)
-        //         console.log(oldWorkArray[arrayPositionholder + 1]);
-
-        //     }
-            
-        // }
-
-        // if(arrayNameholder === 'tattooArray') {
-
-        //     if(position === 'backward') {
-
-        //         console.log(`it was backward `)
-        //         console.log(tattooArray[arrayPositionholder - 1]);
-
-        //     } else {
-
-        //         console.log(`it was forward`)
-        //         console.log(tattooArray[arrayPositionholder + 1]);
-
-        //     }
-            
-        // }
     }
+    
+    
 
     
     
