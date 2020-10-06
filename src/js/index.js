@@ -293,8 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //---------------------------------Arrow Functionality-------------------------------//
     elements.leftArrow.addEventListener('click', switchLeft);
 
-    
-
     function switchLeft() {
 
 
@@ -306,13 +304,18 @@ document.addEventListener("DOMContentLoaded", function () {
         let arrayName = arrayItems[0];
         let arrayPos = arrayItems[1]; // 3 
 
+        
         if(seen === true) {
+
             arrayPos = indexPos;
+
         }
 
+        //finds the prev index item name of the particular array
         findPosition(arrayName, arrayPos, 'backward');
-        
 
+        //switch enlargedImg
+        
 
     }
 
@@ -321,9 +324,11 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if(arrayName === 'illustrationArray') {
 
+            let arrayLength = illustrationArray.length; 
+            
             if(direction === 'backward') {
 
-                let arrayPosMinusOne = minusOne(arrayPosition);
+                let arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
                 
                 console.log(illustrationArray[arrayPosMinusOne]);
 
@@ -331,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             } else {
 
-                let arrayPosPlusOne = plusOne(arrayPosition);
+                let arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
                 
                 console.log(illustrationArray[arrayPosPlusOne]);
                 
@@ -342,36 +347,37 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
     
-    let minusOne = (arg) => {
+    let minusOne = (argIndex, argLength) => {
 
         let arrayPos;
+        
+        if(argIndex === 0) {
 
-
-        if(arg === 0) {
-
-            arrayPos = illustrationArray.length - 1;
+             arrayPos = argLength - 1;
             
         } else {
 
-            arrayPos = arg - 1;
+            arrayPos = argIndex - 1;
+
         }
 
+        console.log(arrayPos);
         seen = true;
         return arrayPos;
 
     }
 
-    let plusOne = (arg) => {
+    let plusOne = (argIndex, argLength) => {
 
         let arrayPos;
 
-        if(arg === illustrationArray.length - 1) {
+        if(argIndex === argLength - 1) {
 
             arrayPos = 0;
 
         } else {
 
-            arrayPos = arg + 1;
+            arrayPos = argIndex + 1;
 
         }
 
@@ -382,8 +388,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
 
-    
-    
     let currentlyDisplayed = () => {
         
         let src = elements.galleryDivEnlargedImgDiv
@@ -605,8 +609,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
-
-
     }();
 });
 
