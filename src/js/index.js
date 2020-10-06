@@ -28,11 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //-----------------------------miscellaneous--------------------------//
 
-        function checkShown() {
+        function checkShown(arg) {
 
-        if(shown === true) {
+        if(arg === true) {
 
             nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
+            
 
         } else {
 
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (document.documentElement.scrollTop >= 870) {
 
             view.bgChange(true);
-            checkShown()
+            checkShown(true)
             
         } else {
             
@@ -312,11 +313,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         //finds the prev index item name of the particular array
-        findPosition(arrayName, arrayPos, 'backward');
+        let previousPosition = findPosition(arrayName, arrayPos, 'backward');
+
+        //remove "array" from arrayName for switchEnlargeImg
+        let removedArrayString =removeArrayString(arrayName);
 
         //switch enlargedImg
+        switchEnlargeImg(removedArrayString, previousPosition);
         
-
     }
 
     
@@ -329,18 +333,18 @@ document.addEventListener("DOMContentLoaded", function () {
             if(direction === 'backward') {
 
                 let arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
-                
-                console.log(illustrationArray[arrayPosMinusOne]);
-
+                //console.log(illustrationArray[arrayPosMinusOne]);
                 indexPos = arrayPosMinusOne;
+
+                return illustrationArray[arrayPosMinusOne];
 
             } else {
 
                 let arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
-                
-                console.log(illustrationArray[arrayPosPlusOne]);
-                
+                //console.log(illustrationArray[arrayPosPlusOne]);
                 indexPos = arrayPosPlusOne;
+
+                return illustrationArray[arrayPosPlusOne];
 
             }
         }
@@ -361,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        console.log(arrayPos);
         seen = true;
         return arrayPos;
 
@@ -386,13 +389,24 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
     
+    let switchEnlargeImg = (arrayName, indexName) => {
+
+        let src = elements.galleryDivEnlargedImgDiv
+        src.querySelector('img').src = `img/${arrayName}/${indexName}.png`
+
+    }
     
+    let removeArrayString = (arrayName) => {
+
+        let removedArrayString = arrayName.replace('Array', '');
+        return removedArrayString;
+
+    }
 
     let currentlyDisplayed = () => {
         
         let src = elements.galleryDivEnlargedImgDiv
         let formattedSrc = formattedName(src)
-        
         return formattedSrc;
 
     }
