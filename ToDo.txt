@@ -55,4 +55,11 @@ when category img is clicked:
     add in images for that template gallery layout
     add javascript to change main image to clicked one in layout
     up arrow hides gallery section >
-    removes images in gallery 
+    removes images in gallery >
+
+
+category thumbnail images layouts out properly 
+
+back button
+category buttons
+category section titles, secondary animations 

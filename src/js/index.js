@@ -28,27 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //-----------------------------miscellaneous--------------------------//
 
-        function checkShown(arg) {
-
-        if(arg === true) {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'inline'); 
-            
-
-        } else {
-
-            nodeToArray(elements.menuGrpI).forEach(el => el.style.display = 'none');
-
-        }
-
-    }
+        
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
 
         if (document.documentElement.scrollTop >= 870) {
 
             view.bgChange(true);
-            checkShown(true)
             
         } else {
             
@@ -80,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //-----------------------------------------------category sections image clicked-------------------------//
 
+
+    //category image clicked, turns on dataset, check data sets and enlarges one which has been turned on, turns off rest. 
+
+
+
     sectionsID.forEach(el => {
         el.addEventListener('click', categoryClicked)
     })
@@ -90,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if(eventTarget.closest('#sectionOneDiv')) {
             
-            //turn on data set for that div
             turnOnDataSet(elements.sectionOneID)
             
         } 
@@ -106,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
         if(eventTarget.closest('#sectionFourDiv')) {
             
-
             turnOnDataSet(elements.sectionFourID)
 
         }
@@ -132,8 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
         
         arg.dataset.clicked = 'true';
         
-    
     }
+
+    let turnOffDataSet = arg =>  {
+
+        arg.forEach(el => {
+
+            el.dataset.clicked = 'false';
+        })
+
+    }
+
+   
 
     let checkDataSet = arg => {
 
@@ -145,22 +144,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+
     let showClickedCategoryImg = el => {
         
     //takes the element, sees what image it is, formats the name of the element src
     let categoryName = formattedName(el)
     
-
     //function which compares name to one of the arrays so it can use the smaller images of the array for the small category
     checkName(categoryName)
 
-    
     }
 
-    let hideCategoryImg = (arg) => {
+    let hideCategoryImg = arg => {
 
         arg.forEach(el => el.style.display = 'none');
 
+    }
+
+    let showCategoryImg = arg => {
+
+        arg.forEach(el => {
+            el.style.display = 'block';
+            
+        });
+        
     }
     
     let formattedName = (el) => {
@@ -189,8 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return convertedString;
 
     }
-
-    
 
     let checkName = (arg) => {
 
@@ -262,14 +268,29 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
 
+    // let enlargeImg = (folder, arg) => {
+
+    //     const leftArrow = elements.leftArrow
+    //     let placeHolderName = `<img src="img/${folder}/${arg}.png" class="galleryDiv__enlargedImgDiv__img"></img>`
+
+    //     leftArrow.insertAdjacentHTML('afterend', placeHolderName)
+
+    // }
+
     let enlargeImg = (folder, arg) => {
 
         const leftArrow = elements.leftArrow
-        let placeHolderName = `<img src="img/${folder}/${arg}.png" class="galleryDiv__enlargedImgDiv__img"></img>`
+        let placeHolderName = document.createElement('img');
+        placeHolderName.src = `img/${folder}/${arg}.png`;
+        placeHolderName.classList.add('galleryDiv__enlargedImgDiv__img');
 
-        leftArrow.insertAdjacentHTML('afterend', placeHolderName)
+        //make a function which adds all the attributes of the img created above 
+        
+        leftArrow.insertAdjacentHTML('afterend', placeHolderName.outerHTML)
 
     }
+
+    
 
     let thumbnailImg = (array, foldername) => {
         array.forEach(el => {
@@ -291,11 +312,79 @@ document.addEventListener("DOMContentLoaded", function () {
         })   
     }
 
+    let removeEnlargeImg = () => {
+
+        const div = elements.galleryDivEnlargedImgDiv;
+        const enlargedImg = div.querySelector('img');
+        enlargedImg.parentNode.removeChild(enlargedImg);
+        
+        
+    }
+
+    let deletethumbnailImg = () => {
+
+    }
+
     //---------------------------------Arrow Functionality-------------------------------//
     elements.leftArrow.addEventListener('click', switchLeft);
+    elements.rightArrow.addEventListener('click', switchRight);
+    elements.crossArrow.addEventListener('click', clearAll);
+
+    function clearAll() {
+
+       
+    
+        //turn off dataset for that cataegory
+        turnOffDataSet(sectionsID);
+
+        //display all category 
+        showCategoryImg(sectionsID);
+
+        //delete enlargedImg
+        removeEnlargeImg();
+
+        //delete thumbnailImg
+
+
+        
+    }
 
     function switchLeft() {
 
+        
+        //find out what's being displayed
+        let src = currentlyDisplayed();
+        
+        
+        //find out what array is being and which position it's in. 
+        let arrayItems = findArray(src);
+        let arrayName = arrayItems[0];
+        let arrayPos = arrayItems[1]; 
+        
+
+        
+        if(seen === true) {
+
+            arrayPos = indexPos;
+
+        }
+
+        //finds the prev index item name of the particular array
+        let previousPosition = findPosition(arrayName, arrayPos, 'backward');
+        
+
+        //remove "array" from arrayName for switchEnlargeImg
+        let removedArrayString = removeArrayString(arrayName);
+        
+
+        //switch enlargedImg
+        switchEnlargeImg(removedArrayString, previousPosition);
+        
+    }
+
+    
+
+    function switchRight() {
 
         //find out what's being displayed
         let src = currentlyDisplayed();
@@ -313,42 +402,140 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         //finds the prev index item name of the particular array
-        let previousPosition = findPosition(arrayName, arrayPos, 'backward');
+        let previousPosition = findPosition(arrayName, arrayPos, 'forward');
 
         //remove "array" from arrayName for switchEnlargeImg
-        let removedArrayString =removeArrayString(arrayName);
+        let removedArrayString = removeArrayString(arrayName);
 
         //switch enlargedImg
         switchEnlargeImg(removedArrayString, previousPosition);
         
     }
 
+
+
+
     
     let findPosition = (arrayName, arrayPosition, direction) => {
+
+        let arrayLength;
+        let arrayPosMinusOne;
+        let arrayPosPlusOne;
         
         if(arrayName === 'illustrationArray') {
 
-            let arrayLength = illustrationArray.length; 
+            arrayLength = illustrationArray.length; 
             
             if(direction === 'backward') {
 
-                let arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
-                //console.log(illustrationArray[arrayPosMinusOne]);
+                arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
+                
                 indexPos = arrayPosMinusOne;
 
                 return illustrationArray[arrayPosMinusOne];
 
             } else {
 
-                let arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
-                //console.log(illustrationArray[arrayPosPlusOne]);
+                arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
+                
                 indexPos = arrayPosPlusOne;
 
                 return illustrationArray[arrayPosPlusOne];
 
             }
         }
-        
+
+        if(arrayName === 'tattooArray') {
+
+            arrayLength = tattooArray.length; 
+            
+            if(direction === 'backward') {
+
+                arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosMinusOne;
+
+                return tattooArray[arrayPosMinusOne];
+
+            } else {
+
+                arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosPlusOne;
+
+                return tattooArray[arrayPosPlusOne];
+
+            }
+        }
+
+        if(arrayName === 'photostudiesArray') {
+
+            arrayLength = photostudiesArray.length; 
+            
+            if(direction === 'backward') {
+
+                arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosMinusOne;
+
+                return photostudiesArray[arrayPosMinusOne];
+
+            } else {
+
+                arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosPlusOne;
+
+                return photostudiesArray[arrayPosPlusOne];
+
+            }
+        }
+
+        if(arrayName === 'merchArray') {
+
+            arrayLength = merchArray.length; 
+            
+            if(direction === 'backward') {
+
+                arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosMinusOne;
+
+                return merchArray[arrayPosMinusOne];
+
+            } else {
+
+                arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosPlusOne;
+
+                return merchArray[arrayPosPlusOne];
+
+            }
+        }
+
+        if(arrayName === 'oldWorkArray') {
+
+            arrayLength = oldWorkArray.length; 
+            
+            if(direction === 'backward') {
+
+                arrayPosMinusOne = minusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosMinusOne;
+
+                return oldWorkArray[arrayPosMinusOne];
+
+            } else {
+
+                arrayPosPlusOne = plusOne(arrayPosition, arrayLength);
+                
+                indexPos = arrayPosPlusOne;
+
+                return oldWorkArray[arrayPosPlusOne];
+
+            }
+        }
     }
     
     let minusOne = (argIndex, argLength) => {
@@ -430,8 +617,6 @@ document.addEventListener("DOMContentLoaded", function () {
         photostudiesArray.forEach((el, index, array) => {
             if(el === arg) {
                 
-                console.log(`photostudies here 2 `)
-
                  arrayPosition = index;
                  arrayTitle = 'photostudiesArray'
                  PosAndTitleArray.push(arrayTitle, arrayPosition);
@@ -442,8 +627,6 @@ document.addEventListener("DOMContentLoaded", function () {
         merchArray.forEach((el, index, array) => {
             if(el === arg) {
                 
-                console.log(`merch here 3 `)
-
                 arrayPosition = index;
                 arrayTitle = 'merchArray'
                 PosAndTitleArray.push(arrayTitle, arrayPosition);
@@ -454,10 +637,8 @@ document.addEventListener("DOMContentLoaded", function () {
         oldWorkArray.forEach((el, index, array) => {
             if(el === arg) {
                 
-                console.log(`oldWork here 4 `)
-
                 arrayPosition = index;
-                arrayTitle = 'oldWork'
+                arrayTitle = 'oldWorkArray'
                 PosAndTitleArray.push(arrayTitle, arrayPosition);
                 
             } 
@@ -466,10 +647,8 @@ document.addEventListener("DOMContentLoaded", function () {
         tattooArray.forEach((el, index, array) => {
             if(el === arg) {
                 
-                console.log(`tattoo here 5 `)
-
                 arrayPosition = index;
-                arrayTitle = 'tattoo'
+                arrayTitle = 'tattooArray'
                 PosAndTitleArray.push(arrayTitle, arrayPosition);
                 
             } 

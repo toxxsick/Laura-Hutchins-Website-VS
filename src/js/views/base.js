@@ -32,8 +32,8 @@ export const elements = {
 
     leftArrow: document.querySelector('.fa-arrow-left'),
     rightArrow: document.querySelector('.fa-arrow-right'),
-    upArrow: document.querySelector('.fa-arrow-up'),
-    menuGrpI: document.querySelectorAll('.menuGrp__i'),
+    crossArrow: document.querySelector('.fa-times'),
+    
 
     introSectionWrapper: document.querySelector('.introSection--wrapper'),
     introSectionBg: document.querySelector('.introSection--background'),
