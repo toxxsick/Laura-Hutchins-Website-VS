@@ -1,29 +1,24 @@
 
-// export const view = function() {
-//     //alert(`initialized from view`);
 
-//     function alertAMessage() {
-//         alert(`called from public function in view`)
-//     }
-
-//     return {
-//         alertOne:alertAMessage
-//     }
-
-// }();
 
 import {elements} from './base'
 
 export const view = function() {
 
-    function bgChange(arg) {
+    let seen = false;
+
+    function navbarBGChange(arg) {
 
         if(arg === true) {
-            //alert(`argument was true! ${arg}`)
+            
             elements.navbar.style.backgroundColor = '#242943';
+            elements.navbar.style.position = 'fixed';
+            
         } else {
-            //alert(`argument was false! ${arg}`)
+            
             elements.navbar.style.backgroundColor = 'transparent';
+            elements.navbar.style.position = 'absolute';
+            
         }
     }
 
@@ -33,7 +28,6 @@ export const view = function() {
 
             elements.modal.style.display = 'block';
 
-
         } else {
 
             elements.modal.style.display = 'none';
@@ -42,15 +36,33 @@ export const view = function() {
 
     }
 
+    function navbarDisplay(arg) {
+
+        if(arg === true && seen === false) {
+            
+            elements.navbar.style.display = 'none';
+            seen = true;
+
+        }
+
+        if (arg === false && seen === true) {
+            elements.navbar.style.display = '';
+            seen = false;
+        }
+    
+    }
+
+    
+
    
     
 
 
     return {
 
-        bgChange:bgChange,
+        navbarBGChange:navbarBGChange,
         modalDisplay:modalDisplay,
-
+        navbarDisplay:navbarDisplay,
 
     }
 

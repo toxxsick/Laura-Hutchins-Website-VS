@@ -7,10 +7,8 @@
     width: 100%;
     height: 4rem;
     background-color: transparent;
-    transition: background-color 1s;
-    position: fixed;
+    //transition: background-color 1s;
     z-index: 10000;
-
     
     .navbar__logo {
 
@@ -33,15 +31,13 @@
         }
 
         .navbar__span {
+
             color: $white;
             padding: 0 0rem 0 0.5rem;
             transition: color 1s;
+
         }
     }
-
-    
-
-    
 
     .navbar__menuGrp {
 
@@ -49,11 +45,6 @@
         margin-left: 5%;
         line-height: 3.5rem;
 
-        
-    
-        
-
-        
         .menuGrp__BtnGrp {
 
             float: right;
@@ -82,8 +73,6 @@
                 color: $white;
                 transition: color 1s;
                 padding-top: 0.95rem;
-
-                
 
             }
 

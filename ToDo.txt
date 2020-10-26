@@ -58,8 +58,17 @@ when category img is clicked:
     removes images in gallery >
 
 
-category thumbnail images layouts out properly 
+category thumbnail images layouts out properly >
 
-back button
-category buttons
-category section titles, secondary animations 
+back button >
+category buttons >
+
+
+enlarged Img size max width and height >
+category section titles, secondary animations >
+top right menu buttons need to navigate to corrosponding section names >
+thumbnail made clickable
+navigation arrows need to stop moving best on image size
+
+
+

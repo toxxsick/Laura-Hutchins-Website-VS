@@ -2,7 +2,7 @@
 
 .clickedSectionsContainer {
     
-    //display: none;
+    
     
     .clickedSectionsContainer__galleryDiv {
         
@@ -11,9 +11,10 @@
         
 
         .galleryDiv__enlargedImgDiv {
-
-            margin-left: 15%;
-            margin-right: 14%;
+            
+            // margin-left: 15%;
+            // margin-right: 14%;
+            text-align: center;
             
             .galleryDiv__enlargedImgDiv__i {
                 
@@ -21,7 +22,7 @@
                 color: $white;
                 cursor: pointer;
                 transition: color 1s;
-                display: inline;
+                display: none;
                 
                 &:hover {
 
@@ -41,15 +42,16 @@
 
             .galleryDiv__enlargedImgDiv__img {
 
-                width: 85%;
-
+                // max-width: 85%;
+                 max-height: 100rem;
+            
             }
 
         }
 
         .galleryDiv__imgDiv {
             
-            //max-width: 15%;
+            margin-top: 2%;
             width: 100%;
             
             display: inline-block;
