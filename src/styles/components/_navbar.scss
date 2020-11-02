@@ -5,10 +5,9 @@
 .wrapper__navbar {
 
     width: 100%;
-    height: 4rem;
-    background-color: transparent;
-    //transition: background-color 1s;
+    //height: 4rem;
     z-index: 10000;
+    text-align: center;
     
     .navbar__logo {
 
@@ -17,6 +16,8 @@
         color: $white;
         transition: color 1s;
         line-height: 3.5rem;
+        float: left;
+        
 
         &:hover {
 
@@ -42,8 +43,19 @@
     .navbar__menuGrp {
 
         display: inline;
-        margin-left: 5%;
+       
         line-height: 3.5rem;
+
+        .navbar__menuGrp__i {
+
+            color: $white;
+            margin-right: 1.5rem;
+            font-size: 2.1rem;
+            line-height: 3.5rem;
+            display: none;
+            cursor: pointer;
+            
+        }
 
         .menuGrp__BtnGrp {
 
@@ -93,9 +105,5 @@
                 }
             }
         }
-
-        
-        
-
     }
 }

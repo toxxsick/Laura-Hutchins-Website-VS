@@ -31,6 +31,7 @@ export const elements = {
     galleryDivImgDivImg: document.querySelector('.galleryDiv__imgDiv__img'),
     galleryDivEnlargedImgDivImg: document.querySelector('.galleryDiv__enlargedImgDiv__img'),
     galleryDivElargedImgDivI: document.querySelectorAll('.galleryDiv__enlargedImgDiv__i'),
+    
 
     galleryDivImgDiv: document.getElementsByClassName('galleryDiv__imgDiv'),
 
@@ -43,6 +44,7 @@ export const elements = {
     leftArrow: document.querySelector('.fa-arrow-left'),
     rightArrow: document.querySelector('.fa-arrow-right'),
     crossArrow: document.querySelector('.fa-times'),
+    
     
     introSectionWrapper: document.querySelector('.introSection--wrapper'),
     introSectionBg: document.querySelector('.introSection--background'),

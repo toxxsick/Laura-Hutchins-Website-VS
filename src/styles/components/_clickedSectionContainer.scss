@@ -16,6 +16,7 @@
             // margin-right: 14%;
             text-align: center;
             
+            
             .galleryDiv__enlargedImgDiv__i {
                 
                 font-size: 7vh;
@@ -23,6 +24,7 @@
                 cursor: pointer;
                 transition: color 1s;
                 display: none;
+                
                 
                 &:hover {
 
@@ -37,14 +39,11 @@
                 margin-left: 2%
             }
 
-            
-            
+            .galleryDiv__enlargedImgDiv__imgDiv {
 
-            .galleryDiv__enlargedImgDiv__img {
+                width: 50rem;
+                height: 63rem;
 
-                // max-width: 85%;
-                 max-height: 100rem;
-            
             }
 
         }

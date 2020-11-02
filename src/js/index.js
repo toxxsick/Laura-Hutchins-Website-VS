@@ -63,19 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
             view.navbarBGChange(false);
             
         }
-
         
         if (document.documentElement.scrollTop > 870) {
 
             view.navbarBGChange(true);
-            $(elements.navbar).slideDown('slow');
+            $(elements.navbar).slideDown('fast');
             slideDownActive = true;
 
         } 
         
         if (document.documentElement.scrollTop < 870 && slideDownActive === true){
 
-            $(elements.navbar).slideUp('slow');
+            $(elements.navbar).slideUp('fast');
             slideDownActive = false;
 
         }
@@ -157,13 +156,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let displayArrows = arg => {
 
-        console.log(elements.galleryDivElargedImgDivI);
-        let arr = nodeToArray(elements.galleryDivElargedImgDivI);
+        let leftArrow = elements.leftArrow;
+        let rightArrow = elements.rightArrow;
+        let crossArrow = elements.crossArrow;
+        let arrowsArr = [leftArrow, rightArrow, crossArrow];
         
         if(arg === true) {
-            arr.forEach(el => el.style.display = 'inline'); 
+
+            arrowsArr.forEach(el => el.style.display = 'inline');
+
         } else {
-            arr.forEach(el => el.style.display = 'none'); 
+
+            arrowsArr.forEach(el => el.style.display = 'none');
+            
         }
 
     }
@@ -238,7 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 formattedAndSplicedel = formattedel.splice(index, 1);
 
             }
-
         })
 
 
@@ -323,12 +327,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let enlargeImg = (folder, arg) => {
 
-        const leftArrow = elements.leftArrow
+        const galeryDivEnlargedImgDiv = elements.galleryDivEnlargedImgDiv
         let placeHolderName = document.createElement('img');
         placeHolderName.src = `img/${folder}/${arg}.png`;
         placeHolderName.classList.add('galleryDiv__enlargedImgDiv__img', 'col-xs-12', 'col-sm-12',  'col-md-8', 'col-lg-8', 'col-xl-7');
 
-        leftArrow.insertAdjacentHTML('afterend', placeHolderName.outerHTML)
+        galeryDivEnlargedImgDiv.insertAdjacentHTML('beforeend', placeHolderName.outerHTML)
 
     }
 
@@ -456,9 +460,6 @@ document.addEventListener("DOMContentLoaded", function () {
         switchEnlargeImg(removedArrayString, previousPosition);
 
     }
-
-
-
 
 
     let findPosition = (arrayName, arrayPosition, direction) => {
@@ -702,36 +703,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return PosAndTitleArray;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //---------------------------------------------contact section clear button-----------------------------//
