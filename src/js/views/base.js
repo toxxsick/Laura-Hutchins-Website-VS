@@ -28,7 +28,7 @@ export const elements = {
     clickedSectionsContainer: document.querySelector('.clickedSectionsContainer'),
     galleryDiv: document.querySelector('.clickedSectionsContainer__galleryDiv'),
     galleryDivEnlargedImgDiv: document.querySelector('.galleryDiv__enlargedImgDiv'),
-    galleryDivImgDivImg: document.querySelector('.galleryDiv__imgDiv__img'),
+    // galleryDivImgDivImg: document.querySelector('.galleryDiv__imgDiv__img'), - Dynamically generated.
     galleryDivEnlargedImgDivImg: document.querySelector('.galleryDiv__enlargedImgDiv__img'),
     galleryDivElargedImgDivI: document.querySelectorAll('.galleryDiv__enlargedImgDiv__i'),
     

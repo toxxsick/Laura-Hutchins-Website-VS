@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let seen = false;
         let indexPos;
         let slideDownActive = false;
+        
+
+
 
 
 
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             elements.sectionsContainerSection.scrollIntoView();
             view.modalDisplay('none');
-
+            
         }
 
         elements.aboutMeBtn.onclick = () => {
@@ -39,18 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         elements.contactBtn.onclick = () => {
+
             elements.contactSectionContainer.scrollIntoView();
+
         }
 
         elements.socialBtn.onclick = () => {
+
            elements.footerContainer.scrollIntoView();
+
         }
 
     
         //--------------------sroll navigation bar switch---------------------//
         window.onscroll = () =>  {
-
-            console.log(document.documentElement.scrollTop);
 
 
         if(document.documentElement.scrollTop > 100) {
@@ -117,11 +122,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function categoryClicked() {
 
         let eventTarget = event.target;
+        
+        
 
         if(eventTarget.closest('#sectionOneDiv')) {
 
             turnOnDataSet(elements.sectionOneID)
-
         }
         if(eventTarget.closest('#sectionTwoDiv')) {
 
@@ -148,11 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
             turnOnDataSet(elements.sectionSixID)
 
         }
-
+        
         checkDataSet(sectionsID);
         displayArrows(true);
+        
 
     }
+
+    //create function with indentifier as argument.
 
     let displayArrows = arg => {
 
@@ -188,8 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
     }
-
-
 
     let checkDataSet = arg => {
 
@@ -228,8 +235,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
+    
     let formattedName = (el) => {
+        
         let formattedel = el.querySelector('img').src.split('/');
         let formattedAndSplicedel;
         let formattedSplicedString;
@@ -322,6 +330,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
 
+        
+
     }
 
 
@@ -346,19 +356,68 @@ document.addEventListener("DOMContentLoaded", function () {
             placeHolderName.classList.add('galleryDiv__imgDiv', 'col-sm-6',  'col-md-4', 'col-lg-4', 'col-xl-2');
 
             let img = document.createElement('img');
+
             img.classList.add('galleryDiv__imgDiv__img');
             img.src = `Img/${foldername}/${el}.png`;
 
             placeHolderName.appendChild(img);
 
-        galleryDiv.insertAdjacentHTML('beforeend', placeHolderName.outerHTML)
-
-       
-
+            galleryDiv.insertAdjacentHTML('beforeend', placeHolderName.outerHTML)          
+            
         });
+
+        thumbnailListeners();
+        
     }
 
-    
+    let thumbnailListeners = () => {
+
+        let btns = document.querySelectorAll('.galleryDiv__imgDiv__img');
+        let btnsArray = nodeToArray(btns);
+
+        btnsArray.forEach(el => el.addEventListener('click', thumbnailFunction))
+        
+    }
+
+    let thumbnailFunction = () => {
+        
+        let eventTarget = event.target;
+        
+
+        let eventTargetSrc = eventTarget.src;
+
+        let formattedArrayName = formatArrayIndexName(eventTargetSrc);
+
+        console.log(formattedArrayName);
+        
+        
+        //find out what has been clicked, what folder, what position 
+        //switchEnlargeImg = (arrayName, indexName) - takes arrayName and indexName
+        switchEnlargeImg(formattedArrayName[0], formattedArrayName[1]);
+
+
+        //pass info to switchEnlargeImg function 
+
+    }
+
+    let formatArrayIndexName = (arg) => {
+
+        let src = arg;
+        
+        let splitArray = src.split('/');
+        
+        let splitIndexName = splitArray[5].split('.').splice(0, 1);
+        
+        let stringSplitIndexName = splitIndexName.toString();
+        
+        splitArray.splice(5, 1);
+        
+        splitArray.push(stringSplitIndexName);
+        
+        let arrayNameIndexName = splitArray.splice(4, 2);
+        return arrayNameIndexName;
+        
+    }
 
 
     let removeEnlargeImg = () => {
@@ -442,7 +501,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let arrayItems = findArray(src);
         let arrayName = arrayItems[0];
         let arrayPos = arrayItems[1]; // 3
-
 
         if(seen === true) {
 
@@ -704,6 +762,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    //----------------------------------clicked section, thumbnail images----------------------------//
+    
+    
+    
+    
 
     //---------------------------------------------contact section clear button-----------------------------//
     elements.clearBTN.onclick = () => {
@@ -733,11 +796,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ////////////////////////CategorySection
 
     
-
-
-
-
-
     //////////////////////About Me Section
 
     let contactIntroHeaderArr = nodeToArray(elements.contactIntroHeader);
@@ -750,51 +808,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).on('scroll',() => {
 
+        
         let scrollPositionY = window.pageYOffset;
-        //console.log(scrollPositionY);
+        
+        
 
-        if(scrollPositionY >= 225 && scrollPositionY <= 700) {
-
-        // [sectionsIDImg[0], sectionsIDImg[1]].forEach(el => $(el).fadeIn(1000));
-        // [sectionsCentered[0], sectionsCentered[1]].forEach(el =>
-
-        //     $(el).delay(1000).animate({
-        //         opacity: 1,
-        //         top: '50%'
-        //     }, 500)
-
-        // );
-
-        }
-
-        if (scrollPositionY >= 750 && scrollPositionY <= 1450) {
-
-        // [sectionsIDImg[2], sectionsIDImg[3]].forEach(el => $(el).fadeIn(1000));
-        // [sectionsCentered[2], sectionsCentered[3]].forEach(el =>
-
-        //     $(el).delay(1000).animate({
-        //         opacity: 1,
-        //         top: '50%'
-        //     }, 500)
-
-        // );
-
-        }
-         if (scrollPositionY >= 1500 && scrollPositionY <= 2000) {
-
-            // [sectionsIDImg[4], sectionsIDImg[5]].forEach(el => $(el).fadeIn(1000));
-        //     [sectionsCentered[4], sectionsCentered[5]].forEach(el =>
-
-        //     $(el).delay(1000).animate({
-        //         opacity: 1,
-        //         top: '50%'
-        //     }, 500)
-
-        // );
-        }
-
-
-        if  (scrollPositionY >= 1800 && scrollPositionY <= 3000) {
+        if  (scrollPositionY >= 1800) {
             let startN = 500;
             let nextN = startN;
             let i;
@@ -805,7 +824,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
 
-        if(scrollPositionY >= 3000 && scrollPositionY <= 3500) {
+        if(scrollPositionY >= 3000 && scrollPositionY <= 3670) {
 
             [$(elements.leftContactSection), $(elements.rightContactSection)].forEach(el => el.animate({opacity: 1}, 500));
 

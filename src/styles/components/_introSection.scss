@@ -47,30 +47,6 @@
                     font-size: 1.4rem;
                 }
             }
-
-            
-
-            .wrapper--button {
-                padding: 1rem;
-                background: transparent;
-                border: 0.2rem solid $white;
-                color: $white;
-                font-weight: 600;
-                transition: color 1s, border 1s, background 1s;
-                position: relative;
-
-                @media only screen and (max-width: 992px) {
-                    top: 15rem;
-                }
-
-                &:hover {
-                    color: $blue;
-                    background: $white;
-                    border: 0.2rem solid $white;
-                    transition: color 1s, border 1s, background 1s;
-                    font-weight: 600;
-                }
-            }
         }
     }
 }

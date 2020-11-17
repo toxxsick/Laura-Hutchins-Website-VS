@@ -62,13 +62,16 @@ category thumbnail images layouts out properly >
 
 back button >
 category buttons >
-
-
 enlarged Img size max width and height >
 category section titles, secondary animations >
 top right menu buttons need to navigate to corrosponding section names >
-thumbnail made clickable
+thumbnail made clickable >
 navigation arrows need to stop moving best on image size >
+
+menu buttons needs to activate section content and make it appear
+
+
+
 
 
 
